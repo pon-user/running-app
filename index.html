@@ -1,4 +1,4 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0e171d"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="NAGOYA RUN"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><title>NAGOYA RUN | レベルと一体のロードマップ v0.3</title><style>:root{color-scheme:dark;--bg:#0e171d;--card:#19252f;--soft:#263a42;--line:#34464e;--text:#f1f7f7;--muted:#acbec8;--accent:#79ddc4;--warning:#ffd69a;--danger:#f4b0b0}
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0e171d"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="NAGOYA RUN"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><title>NAGOYA RUN | 個別最適な伴走 v0.5</title><style>:root{color-scheme:dark;--bg:#0e171d;--card:#19252f;--soft:#263a42;--line:#34464e;--text:#f1f7f7;--muted:#acbec8;--accent:#79ddc4;--warning:#ffd69a;--danger:#f4b0b0}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.58 -apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif}button,input,select{font:inherit}
 h1,h2,h3,p{margin:0}p+p{margin-top:8px}a{color:var(--accent)}
 .wrap{max-width:640px;margin:auto;padding:calc(18px + env(safe-area-inset-top)) 15px calc(112px + env(safe-area-inset-bottom))}
@@ -15,9 +15,17 @@ label{display:block;font-size:12px;color:var(--muted);margin:13px 0 5px}input,se
 .segmented{display:flex;gap:5px;padding:3px;border-radius:11px;background:#111f29;border:1px solid var(--line);margin-top:11px}.segmented button{flex:1;min-width:0;border:0;border-radius:8px;padding:8px 3px;background:transparent;color:var(--muted);font-size:12px;cursor:pointer}.segmented button.on{background:#31554f;color:#e0fff3;font-weight:850}
 .chart{display:block;width:100%;height:auto;margin-top:8px}.chart text{font:10px -apple-system,BlinkMacSystemFont,sans-serif;fill:#b4c6ce}.chart line.grid{stroke:#495a64;stroke-width:.8;stroke-dasharray:3 4}.chart .axis{stroke:#556771}.empty{padding:15px 0;font-size:13px;color:var(--muted)}
 .roadmap-card{padding:12px 0;border-bottom:1px solid var(--line)}.roadmap-card:last-child{border-bottom:0}.stage-title{display:flex;gap:9px;align-items:center}.stage-bubble{flex:none;display:grid;place-items:center;border:1px solid #4e706a;background:#27453f;border-radius:50%;width:38px;height:38px;font-size:12px;font-weight:850;color:#bef7e8}.stage-bubble.dim{border-color:var(--line);background:#2d3b45;color:var(--muted)}.stage-content{flex:1;min-width:0}.stage-details{margin:8px 0 0 46px}.stage-details p{margin-top:5px}.stage-current{border-left:2px solid var(--accent);padding-left:9px;margin-left:-11px}
+.submetric{font-size:10px;color:var(--muted);line-height:1.35;margin-top:5px;overflow-wrap:anywhere}
+.grid3 .card{min-width:0}.grid3 .big{font-variant-numeric:tabular-nums}
+.chartlegend{display:flex;gap:13px;flex-wrap:wrap;align-items:center;margin:13px 0 4px;font-size:11px;color:var(--muted)}.chartlegend span{display:inline-flex;gap:6px;align-items:center}.chartlegend i{width:11px;height:11px;display:inline-block;border-radius:3px;flex:none}
+.walktext{color:#aec4ff}.tag.walktag{background:#2e3e64;border:1px solid #5371a6;color:#c0d3ff}
+.chart{max-width:100%;overflow:visible}
+@media(max-width:380px){.grid3 .card{padding:10px 4px}.grid3 .big{font-size:16px}.submetric{font-size:9px}.chartlegend{gap:8px}}
 @media(max-width:360px){.wrap{padding-left:12px;padding-right:12px}.card{padding:13px}.brand{font-size:18px}.grid3 .big{font-size:16px}.stage-details{margin-left:24px}.stage-title{gap:7px}}
+
+.ability-row{margin:12px 0}.ability-row .meter{height:8px;background:#31444e;border-radius:30px;overflow:hidden;margin:6px 0 3px}.ability-row .meter>i{height:100%;display:block;border-radius:30px;background:#79ddc4}.ability-row .meter>i.low{background:#efbf80}.ability-row .meter>i.unknown{background:#657b8a}.statusline{padding:12px 13px;border-radius:12px;background:#29423f;border:1px solid #3b6f62;margin:11px 0}.statusline.warn{background:#3b362a;border-color:#786640}.statusline.alert{background:#433038;border-color:#7d5961}.statusline.rebuild{background:#2d3e50;border-color:#4e7092}.mininav{display:flex;gap:8px;flex-wrap:wrap}.mininav span{font-size:11px;background:#2c434e;border-radius:8px;padding:4px 7px;color:#c8dde6}.dimtext{font-size:12px;color:#9eb1bd}.emphasis{color:#cbfff0;font-weight:850}.bullets{margin:7px 0 0 16px;padding:0;font-size:13px}.bullets li{padding:3px 0}.nowrap{white-space:nowrap}
 </style></head><body><div id="root"></div><nav id="nav" class="tabbar" aria-label="メインメニュー"></nav><script>(()=>{'use strict';
-const KEY='nagoya-run-mvp-v1',RACE='2027-03-14',RACE_KM=21.0975,VERSION='0.3';
+const KEY='nagoya-run-mvp-v1',RACE='2027-03-14',RACE_KM=21.0975,VERSION='0.5';
 const $=q=>document.querySelector(q);
 const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const asDate=s=>new Date(s+'T12:00:00');
@@ -37,6 +45,11 @@ let data,storageError=false,tab='home',editing=today(),analysisRange='all',showA
 try{const raw=localStorage.getItem(KEY);data=raw?JSON.parse(raw):INITIAL();if(!data||!data.records||typeof data.records!=='object'||Array.isArray(data.records))throw Error('invalid');if(!data.checkins||typeof data.checkins!=='object'||Array.isArray(data.checkins))data.checkins={};if(!data.progress||typeof data.progress!=='object')data.progress={maxLevel:0}}
 catch(e){data=INITIAL();storageError=true}
 function records(){return Object.entries(data.records).filter(([d,r])=>safeDate(d)&&d<=today()&&r&&!r.rest&&Number.isFinite(+r.km)&&Number.isFinite(+r.minutes)&&+r.km>0&&+r.minutes>0).sort((a,b)=>a[0].localeCompare(b[0]));}
+function isWalk(r){return r.mode==='walk'}
+// Legacy records without a mode field are treated as run/walk, never deleted.
+function trainingRecords(){return records().filter(([,r])=>!isWalk(r))}
+function walkingRecords(){return records().filter(([,r])=>isWalk(r))}
+function activityKind(r){return isWalk(r)?'ウォーキング':r.mode==='run'?'ランニング':'走る＋歩く'}
 function rangeRecords(n,anchor=today()){const from=shift(anchor,1-n);return records().filter(([d])=>d>=from&&d<=anchor)}
 function totalKm(es){return es.reduce((s,[,r])=>s+Number(r.km),0)}
 function totalMinutes(es){return es.reduce((s,[,r])=>s+Number(r.minutes),0)}
@@ -50,86 +63,173 @@ function save(){if(storageError){alert('古い記録を読めなかったため�
 
 // The ONE source of truth for level progression, roadmap, and level-specific training.
 // Each gate is an operational design threshold, not a medically validated fitness test.
+// A single milestone table drives earned levels, road map, period targets, and training.
+// Thresholds are pragmatic in-app design choices, not validated physiological standards.
 const LEVELS=[
- {lv:0,name:'スタート準備',phase:'スタート',period:'準備期間',condition:'まだ到達基準なし',meaning:'少ない負荷から運動を始める段階',training:[15,20,20],focus:'短時間の歩行または走歩交互で、運動後の体調を観察。',check:()=>true},
- {lv:1,name:'最初の20分',phase:'走歩の基礎',period:'10月〜11月ごろ',condition:'20分以上の運動を1回',meaning:'20分動く経験ができた段階',training:[20,20,25],focus:'運動間に休養日を入れ、20分を楽に繰り返す。',check:e=>countWhere(e,r=>+r.minutes>=20)>=1},
- {lv:2,name:'継続の土台',phase:'走歩の基礎',period:'10月〜11月ごろ',condition:'14日間に運動3回',meaning:'続けるリズムを作り始めた段階',training:[20,25,30],focus:'週2〜3回を基本に、走る日と休む日を組み合わせる。',check:e=>e.filter(([d])=>d>=shift(e.at(-1)[0],-13)).length>=3},
- {lv:3,name:'楽に30分',phase:'走歩の基礎',period:'10月〜11月ごろ',condition:'21日間で30分以上を2回、14日間で3回',meaning:'30分の有酸素運動を繰り返す土台',training:[30,30,35],focus:'会話できる強さで30分動く。苦しければ歩く時間を増やす。',check:e=>{let d=e.at(-1)[0];return countWhere(e.filter(([day])=>day>=shift(d,-20)),r=>+r.minutes>=30&&safeToPromote(r))>=2&&e.filter(([day])=>day>=shift(d,-13)).length>=3}},
- {lv:4,name:'5kmを安定',phase:'短距離の安定',period:'11月〜12月ごろ',condition:'42日間で5km以上を2回、28日間で合計4回',meaning:'5kmを一度でなく繰り返せる段階',training:[30,35,45],focus:'楽な5km前後を繰り返し、余裕がある週だけ長めの時間を少し延長。',check:e=>{let d=e.at(-1)[0];return countWhere(e.filter(([day])=>day>=shift(d,-41)),r=>+r.km>=5&&safeToPromote(r))>=2&&e.filter(([day])=>day>=shift(d,-27)).length>=4}},
- {lv:5,name:'8kmに対応',phase:'持久力づくり',period:'11月〜12月ごろ',condition:'56日間で8km以上を1回、42日間に5回',meaning:'長めの運動への適応を始めた段階',training:[35,40,55],focus:'短い練習を継続しつつ、週1回だけ長めの運動を取り入れる。',check:e=>{let d=e.at(-1)[0];return countWhere(e.filter(([day])=>day>=shift(d,-55)),r=>+r.km>=8&&safeToPromote(r))>=1&&e.filter(([day])=>day>=shift(d,-41)).length>=5}},
- {lv:6,name:'10kmの土台',phase:'持久力づくり',period:'12月〜1月ごろ',condition:'56日間で10km以上を1回、合計6回',meaning:'ハーフの約半分に相当する距離を経験',training:[40,45,65],focus:'楽な練習を中心に、長めの運動の後の回復を確認する。',check:e=>{let k=e.filter(([day])=>day>=shift(e.at(-1)[0],-55));return countWhere(k,r=>+r.km>=10&&safeToPromote(r))>=1&&k.length>=6}},
- {lv:7,name:'13kmの持久力',phase:'持久力づくり',period:'1月ごろ',condition:'56日間で13km以上を1回、合計8回',meaning:'ハーフ後半を意識した長時間運動の経験',training:[40,50,75],focus:'距離の延長より、疲れを翌週に残さない練習を優先する。',check:e=>{let k=e.filter(([day])=>day>=shift(e.at(-1)[0],-55));return countWhere(k,r=>+r.km>=13&&safeToPromote(r))>=1&&k.length>=8}},
- {lv:8,name:'16kmの持久力',phase:'距離＋関門',period:'1月〜2月ごろ',condition:'70日間で16km以上を1回、合計10回',meaning:'長距離への適応。ただし完走可能とはまだ言えない',training:[45,50,85],focus:'長距離の持続力と回復力を保ちつつ、関門ペースの準備を始める。',check:e=>{let k=e.filter(([day])=>day>=shift(e.at(-1)[0],-69));return countWhere(k,r=>+r.km>=16&&safeToPromote(r))>=1&&k.length>=10}},
- {lv:9,name:'関門ペースの土台',phase:'距離＋関門',period:'2月ごろ',condition:'70日間で10km以上・平均7:30/km以内を1回、16km以上の実績',meaning:'距離だけでなく平均ペースの確認を開始した段階',training:[45,45,90],focus:'楽な運動が中心。適切に回復できる場合だけ短いペース練習を実施。',check:e=>{let k=e.filter(([day])=>day>=shift(e.at(-1)[0],-69));return countWhere(k,r=>+r.km>=16&&safeToPromote(r))>=1&&countWhere(k,r=>+r.km>=10&&paceOf(r)<=450&&r.mode!=='walk'&&safeToPromote(r))>=1}},
- {lv:10,name:'余裕ある完走へ',phase:'大会へ調整',period:'2月後半〜3月前半',condition:'70日間に10km以上・7:10/km以内を2回、16km以上・7:20/km以内を1回、合計12回',meaning:'余裕を狙うための参考条件に到達。大会当日の通過保証ではない',training:[40,45,80],focus:'レース直前は負荷を落として疲れを抜く。ペースは無理に追わない。',check:e=>{let k=e.filter(([day])=>day>=shift(e.at(-1)[0],-69));return countWhere(k,r=>+r.km>=10&&paceOf(r)<=430&&r.mode!=='walk'&&safeToPromote(r))>=2&&countWhere(k,r=>+r.km>=16&&paceOf(r)<=440&&r.mode!=='walk'&&safeToPromote(r))>=1&&k.length>=12}}
+ {lv:0,name:'スタート準備',phase:'準備',dueWeeks:22,condition:'記録前',meaning:'運動を少しずつ始める',training:[15,20,25],focus:'短い走歩を無理なく開始する。',check:()=>true},
+ {lv:1,name:'まず20分',phase:'走歩の土台',dueWeeks:20,condition:'20分以上の走歩またはランニングを1回',meaning:'運動を始める段階',training:[20,20,30],focus:'走歩で20分を反復する。',check:e=>countWhere(e,r=>+r.minutes>=20)>=1},
+ {lv:2,name:'2週間の習慣',phase:'走歩の土台',dueWeeks:18,condition:'14日間で3回の走歩・ランニング',meaning:'反復できる練習習慣の獲得',training:[20,25,30],focus:'間に休養を挟んで週2〜3回を安定させる。',check:e=>e.filter(([d])=>d>=shift(e.at(-1)[0],-13)).length>=3},
+ {lv:3,name:'楽な30分',phase:'走歩の土台',dueWeeks:16,condition:'21日間で楽な30分を2回、14日間で3回',meaning:'30分を繰り返せる基礎',training:[25,30,40],focus:'会話できる強さを優先し、歩きを混ぜてもよい。',check:e=>{const d=e.at(-1)[0];return countWhere(e.filter(([x])=>x>=shift(d,-20)),r=>+r.minutes>=30&&safeToPromote(r))>=2&&e.filter(([x])=>x>=shift(d,-13)).length>=3}},
+ {lv:4,name:'5kmを安定',phase:'距離の安定',dueWeeks:14,condition:'42日間に楽な5kmを2回、28日間で4回',meaning:'5kmを繰り返す経験',training:[30,35,55],focus:'楽な5kmを反復し、週1回の少し長い練習を用意する。',check:e=>{const d=e.at(-1)[0];return countWhere(e.filter(([x])=>x>=shift(d,-41)),r=>+r.km>=5&&safeToPromote(r))>=2&&e.filter(([x])=>x>=shift(d,-27)).length>=4}},
+ {lv:5,name:'8kmに対応',phase:'持久力育成',dueWeeks:12,condition:'56日間に楽な8kmを1回、42日間に5回',meaning:'長めの距離への適応',training:[30,40,75],focus:'楽な短い練習を維持しながら、週1回だけ長くする。',check:e=>{const d=e.at(-1)[0];return countWhere(e.filter(([x])=>x>=shift(d,-55)),r=>+r.km>=8&&safeToPromote(r))>=1&&e.filter(([x])=>x>=shift(d,-41)).length>=5}},
+ {lv:6,name:'10kmの土台',phase:'持久力育成',dueWeeks:10,condition:'56日間に楽な10kmを1回、計6回',meaning:'ハーフ距離の半分近くを経験',training:[35,45,95],focus:'長めの練習の翌日は疲労回復を優先する。',check:e=>{const d=e.at(-1)[0],k=e.filter(([x])=>x>=shift(d,-55));return countWhere(k,r=>+r.km>=10&&safeToPromote(r))>=1&&k.length>=6}},
+ {lv:7,name:'13kmの持久力',phase:'持久力育成',dueWeeks:8,condition:'70日間に楽な13kmを1回、計8回',meaning:'長時間移動への適応を確認',training:[40,45,120],focus:'長距離のあとの回復と、平日の短い練習を重視する。',check:e=>{const d=e.at(-1)[0],k=e.filter(([x])=>x>=shift(d,-69));return countWhere(k,r=>+r.km>=13&&safeToPromote(r))>=1&&k.length>=8}},
+ {lv:8,name:'16kmの持久力',phase:'距離と関門',dueWeeks:6,condition:'70日間に楽な16kmを1回、計10回',meaning:'本番に向けた長距離経験',training:[40,50,150],focus:'長距離の反復を急がず、関門ペースを別に確認する。',check:e=>{const d=e.at(-1)[0],k=e.filter(([x])=>x>=shift(d,-69));return countWhere(k,r=>+r.km>=16&&safeToPromote(r))>=1&&k.length>=10}},
+ {lv:9,name:'関門ペースを確認',phase:'距離と関門',dueWeeks:4,condition:'70日間に16km以上1回＋10kmを7:45/km以内で1回',meaning:'距離に加えペースの根拠を確保',training:[40,50,145],focus:'楽なラン中心。痛みがなく十分な土台がある場合に限り、短いペース確認を行う。',check:e=>{const d=e.at(-1)[0],k=e.filter(([x])=>x>=shift(d,-69));return countWhere(k,r=>+r.km>=16&&safeToPromote(r))>=1&&countWhere(k,r=>+r.km>=10&&paceOf(r)<=465&&safeToPromote(r))>=1}},
+ {lv:10,name:'余裕ある完走へ',phase:'大会へ調整',dueWeeks:2,condition:'70日間に16kmを7:35/km以内1回＋10kmを7:20/km以内2回',meaning:'余裕ある関門通過を狙う参考実績。ただし保証ではない',training:[30,40,90],focus:'直前は距離を増やさず回復と調整を優先する。',check:e=>{const d=e.at(-1)[0],k=e.filter(([x])=>x>=shift(d,-69));return countWhere(k,r=>+r.km>=16&&paceOf(r)<=455&&safeToPromote(r))>=1&&countWhere(k,r=>+r.km>=10&&paceOf(r)<=440&&safeToPromote(r))>=2}}
 ];
+
 function progressState(){
- const es=records();let achieved=0;
- // Evaluate the whole recorded timeline rather than only the last 42 days. Once earned, a level remains earned.
- for(let end=0;end<es.length;end++){
-  const soFar=es.slice(0,end+1);
-  for(let level=achieved+1;level<LEVELS.length;level++){
-   if(!LEVELS[level].check(soFar))break;
-   achieved=level;
-  }
+ const es=trainingRecords(),earnedDates=Array(LEVELS.length).fill(null);let lv=0;
+ // Persist the highest demonstrably reached level, but recompute after edits/deletions.
+ for(let i=0;i<es.length;i++){
+  const prefix=es.slice(0,i+1);
+  for(let j=lv+1;j<LEVELS.length;j++){if(!LEVELS[j].check(prefix))break;lv=j;earnedDates[j]=es[i][0]}
  }
- const lv=achieved; // Editing or deleting a mistaken record must update the achieved level.
- return {lv,stage:LEVELS[lv],next:LEVELS[lv+1]||null,achieved,es};
+ // Effective training stage is inferred from recent evidence, not the historical badge.
+ const recent=es.filter(([d])=>d>=shift(today(),-69)),last=es.at(-1),ago=last?days(last[0],today()):Infinity;
+ let current=0;
+ for(let j=1;j<LEVELS.length;j++){if(!recent.length||!LEVELS[j].check(recent))break;current=j}
+ if(ago>=28)current=0;
+ else if(ago>=14)current=Math.min(current,1);
+ else if(ago>=7)current=Math.min(current,Math.max(1,lv-3));
+ // After a long gap do not immediately jump back to a previously high stage.
+ let recentGapIndex=-1;
+ for(let i=1;i<es.length;i++)if(days(es[i-1][0],es[i][0])>=21)recentGapIndex=i;
+ const restartCount=recentGapIndex<0?Infinity:es.length-recentGapIndex;
+ if(recentGapIndex>=0&&days(es[recentGapIndex][0],today())<42){
+  if(restartCount<3)current=Math.min(current,2);
+  else if(restartCount<6)current=Math.min(current,4);
+  else if(restartCount<9)current=Math.min(current,6);
+ }
+ return {lv,stage:LEVELS[lv],next:LEVELS[lv+1]||null,current:Math.min(current,lv),currentStage:LEVELS[Math.min(current,lv)],earnedDates,es,last,ago,restartCount,restartActive:recentGapIndex>=0&&days(es[recentGapIndex][0],today())<42&&restartCount<9};
 }
-function currentCheckin(){return data.checkins[today()]||null}
-function lastTraining(){return records().at(-1)||null}
+const clip=(n,a=0,b=100)=>Math.max(a,Math.min(b,n));
+function abilityScores(){
+ const es=trainingRecords(),r28=es.filter(([d])=>d>=shift(today(),-27)),r70=es.filter(([d])=>d>=shift(today(),-69));
+ const safe=r70.filter(([,r])=>safeToPromote(r));
+ const longest=bestKm(safe),longtime=Math.max(0,...safe.map(([,r])=>+r.minutes));
+ const activeWeeks=new Set(r28.map(([d])=>weekStart(d))).size;
+ const endurance=es.length?Math.round(clip(70*longest/16+30*longtime/150)):null;
+ const consistency=es.length?Math.round(clip(65*r28.length/8+35*activeWeeks/4)):null;
+ const paceCandidates=r70.filter(([,r])=>+r.km>=5&&safeToPromote(r)).map(([,r])=>paceOf(r)).sort((a,b)=>a-b);
+ const med=paceCandidates.length?paceCandidates[Math.floor(paceCandidates.length/2)]:null;
+ const paceScore=paceCandidates.length>=2?Math.round(clip((660-med)/(660-430)*100)):null;
+ const effortLogs=r28.filter(([,r])=>[1,2,3].includes(sessionEffort(r)));
+ const anyAlert=records().some(([d,r])=>d>=shift(today(),-29)&&(r.symptoms==='alert'||r.pain==='yes'));
+ const avgEffort=effortLogs.length?effortLogs.reduce((n,[,r])=>n+sessionEffort(r),0)/effortLogs.length:null;
+ const loadScore=anyAlert?null:effortLogs.length>=3?Math.round(clip(125-avgEffort*25)):null;
+ return [
+  {id:'endurance',name:'持久力',score:endurance,why:`直近70日：良好な最長${num(longest)}km／最大${Math.round(longtime)}分`,how:'楽な長めの練習を段階的に重ねる'},
+  {id:'consistency',name:'継続力',score:consistency,why:`直近28日：${r28.length}回／実施週${activeWeeks}週`,how:'間に休養を挟んで週2〜3回を安定させる'},
+  {id:'pace',name:'関門ペース',score:paceScore,why:paceCandidates.length>=2?`直近70日の5km以上${paceCandidates.length}回、代表ペース${pace(med)}/km`:`5km以上の比較可能な記録は${paceCandidates.length}回（評価には2回必要）`,how:'まず楽な持久力を作り、距離が安定してからペースを確認する'},
+  {id:'load',name:'負荷への余裕',score:loadScore,why:anyAlert?'運動中の違和感があり、数値評価より安全確認を優先':`28日の強度記録${effortLogs.length}件（3件で評価）`,how:'運動後のきつさを記録し、無理な負荷増加を避ける'}
+ ];
+}
+function expectedLevel(){
+ const w=raceLeft()/7;
+ if(w>=21)return 0;
+ let lv=0;
+ for(const st of LEVELS.slice(1,10))if(w<=st.dueWeeks)lv=st.lv;
+ return lv;
+}
 function conditionStatus(){
- const last=lastTraining(),todayState=currentCheckin();
- if(todayState==='alert')return {status:'alert',title:'運動を控えて症状を確認',desc:'運動中の肩・胸の違和感、鋭い痛みなどがある場合は負荷を上げないで、医療機関に相談してね。'};
- if(last&&last[1].pain==='yes'&&!todayState)return {status:'alert',title:'痛み・違和感の確認が必要',desc:'前回の記録に痛み・違和感があるよ。運動を再開する前に原因を確認してね。'};
- if(todayState==='sore')return {status:'recover',title:'軽めの活動・回復',desc:'軽い筋肉痛がある日は走力を試さず、無理のない散歩など。悪化するなら中止。'};
- if(todayState==='tired')return {status:'rest',title:'今日は回復を優先',desc:'強い疲労や筋肉痛がある日は無理に動かず休もう。'};
- if(last&&days(last[0],today())<=1)return {status:'rest',title:'ランニングを休む日',desc:'前回から1日以内だよ。初心者の段階では走る日の間に回復日を設けよう。'};
- if(last&&days(last[0],today())>=14)return {status:'restart',title:'負荷を下げて再開',desc:'しばらく練習が空いているので、以前の距離をいきなり再現しないようにしよう。'};
- if(last&&sessionEffort(last[1])===3)return {status:'recover',title:'前回の負荷を下げて再開',desc:'前回はかなりきつかった記録だよ。走歩交互で短めに。'};
- return {status:'ready',title:'レベルに合った練習が候補',desc:'直近の状態で中止を示す情報はないよ。運動前にも体調を確認してね。'};
+ const es=trainingRecords(),all=records(),last=es.at(-1),prior=all.at(-1),gap=last?days(last[0],today()):Infinity;
+ const alert=all.filter(([d,r])=>d>=shift(today(),-29)&&(r.symptoms==='alert'||r.pain==='yes')).at(-1);
+ if(alert)return {status:'alert',title:'安全確認が優先',desc:'最近の運動中の痛み・違和感が記録されているよ。特に運動中の肩や胸の症状は、再開前に医療機関で相談してね。'};
+ if(prior&&prior[1].symptoms==='sore'&&days(prior[0],today())<=2)return {status:'recover',title:'筋肉痛を考慮',desc:'直近で筋肉痛の記録があるため、軽い活動と回復を優先。悪化するなら中止。'};
+ if(last&&gap<=1)return {status:'rest',title:'練習間の休養',desc:'前回の走歩・ランニングから1日以内。走る日は原則として間隔を空けよう。'};
+ if(last&&sessionEffort(last[1])===3&&gap<=3)return {status:'recover',title:'前回の負荷が高め',desc:'かなりきつかった記録があるので、回復できてから短めに再開しよう。'};
+ if(!last||gap>=14)return {status:'restart',title:'再開期',desc:'過去のレベルは保持するが、実施する負荷は現在の状態から組み直す。'};
+ return {status:'ready',title:'最近の実績から提案',desc:'運動前の体調確認も必要。今の画面は医学的な運動許可を意味しないよ。'};
+}
+function progressDiagnosis(){
+ const p=progressState(),current=conditionStatus(),target=expectedLevel(),es=p.es;
+ const last=p.last,ago=p.ago,week4=es.filter(([d])=>d>=shift(today(),-27)).length;
+ const earned=p.earnedDates[p.lv],stall=p.lv>=1&&earned&&days(earned,today())>=28&&week4>=5&&p.lv<9;
+ let status='順調',kind='ok',reason='大会までの目安に対して大きな遅れは確認されていないよ。',action='現在の負荷を無理なく繰り返そう。';
+ if(current.status==='alert'){status='安全確認';kind='alert';reason=current.desc;action='走行中の症状を自己判断で片づけず、運動負荷を上げる前に医療機関へ相談。'}
+ else if(!es.length){status=raceLeft()<126?'進捗に注意':'準備開始';kind=raceLeft()<126?'warn':'ok';reason=raceLeft()<126?'大会までの時間に対して、まだ走歩・ランニングの実績がない。':'これから最初の短い練習を始める段階。';action='まず低負荷の走歩で基礎を作り、無理に抜けた練習を埋めない。'}
+ else if(ago>=28&&es.length){status='再計画が必要';kind='rebuild';reason=`前回のラン・走歩から${ago}日。到達済みLv.${p.lv}と現在の練習可能段階Lv.${p.current}を分けて扱う。`;action='まず2週間は短い走歩を反復して体調を確認し、元の長距離メニューに直接戻らない。'}
+ else if(ago>=14&&es.length){status='再開を優先';kind='rebuild';reason=`前回のラン・走歩から${ago}日。練習の連続性が途切れている。`;action='再開直後は短時間に戻し、運動を繰り返せるかを確認。'}
+ else if(p.restartActive){status='再構築中';kind='rebuild';reason=`長い中断の後の再開期。再開後${p.restartCount}回の練習を記録。実施段階Lv.${p.current}で身体を慣らしている。`;action='直近2週間の低負荷の練習を積み重ね、元の高負荷に急に戻さない。'}
+ else if(target-p.lv>=2){status='進捗遅延';kind='warn';reason=`計画目安Lv.${target}に対して実績はLv.${p.lv}。${target-p.lv}段階の差がある。`;action='安全な範囲で練習頻度と長めの練習を安定させ、不足要素を優先しよう。'}
+ else if(stall){status='停滞を分析';kind='warn';reason=`練習は28日で${week4}回あるけれど、Lv.${p.lv}の到達から約${days(earned,today())}日経過している。`;action='頻度は確保されているので、次の到達条件と運動のきつさ・長めの練習を見直そう。'}
+ else if(target>p.lv){status='進捗に注意';kind='warn';reason=`目安Lv.${target}に対して実績Lv.${p.lv}。今のうちに小さな差を把握しておこう。`;action='週2〜3回の継続と、次のレベルで不足する条件を優先。'}
+ else if(week4<=2&&es.length&&raceLeft()<120){status='継続に注意';kind='warn';reason=`直近28日のラン・走歩は${week4}回。継続が不安定になっている。`;action='まず週2回の楽な練習を安定させ、余裕があれば週3回を検討。'}
+ if(raceLeft()<=42&&p.current<=5&&kind!=='alert'){
+  status='大会目標の再評価';kind='warn';reason=`大会まで${raceLeft()}日で、現在の練習段階はLv.${p.current}。関門と長距離の根拠が足りない可能性が高い。`;action='急な長距離練習や高速走では埋め合わせず、完走目標と出走可否も含めて再評価しよう。';
+ }
+ return {status,kind,reason,action,target,level:p.lv,currentLevel:p.current,stall,week4,remaining:raceLeft(),condition:current};
+}
+function trainingFocus(){
+ const p=progressState(),scores=abilityScores(),d=progressDiagnosis();
+ if(d.kind==='alert')return {name:'安全確認',why:'運動中の症状があるため、練習負荷を増やす判定はしない。'};
+ if(d.kind==='rebuild')return {name:'練習習慣の再構築',why:'休止後は以前のレベルを維持できているとは限らないため、段階的に戻す。'};
+ const valid=scores.filter(x=>x.score!==null&&x.id!=='load').sort((a,b)=>a.score-b.score);
+ const worst=valid[0];
+ if(!worst)return {name:'基礎データを集める',why:'ラン・走歩の実績が十分でないため、短い練習から確認する。'};
+ if(worst.id==='consistency')return {name:'練習頻度の安定',why:worst.why};
+ if(worst.id==='endurance')return {name:'持久力を優先',why:worst.why};
+ if(p.current>=5&&worst.id==='pace')return {name:'関門ペースの確認',why:worst.why};
+ return {name:'楽な練習の反復',why:worst.why};
 }
 function planForToday(){
- const p=progressState(),state=conditionStatus(),last=lastTraining(),weeks=raceLeft(),base=p.stage.training;
- if(weeks===0)return {title:'大会当日・大会後',minutes:0,type:'調整',detail:'本日は新しい練習を追加せず、体調と大会の案内を最優先に。',reason:'大会日に入っているため'};
- if(state.status==='alert')return {title:'練習をいったん保留',minutes:0,type:'安全確認',detail:state.desc,reason:'運動中の症状や痛みの確認が必要なため'};
- if(state.status==='rest')return {title:'今日は回復日',minutes:0,type:'休養',detail:state.desc+' 休養もロードマップの一部だよ。',reason:'負荷を追加するより回復が大切なため'};
- if(state.status==='recover')return {title:'体調に合わせた軽い活動',minutes:15,type:'回復',detail:state.desc+' 走る練習は回復してから。',reason:'今のコンディションに合わせて調整'};
- if(weeks<=14){return {title:'大会直前：疲労を抜く練習',minutes:Math.min(30,base[0]),type:'調整',detail:'新しい最長距離やスピードへの挑戦は避け、楽な運動を短めに。',reason:'大会まで2週間以内の調整期だから'};}
- if(state.status==='restart')return {title:'走歩交互で再開',minutes:20,type:'再開',detail:'最初と最後に5分ずつ歩く。楽な強さを優先し、以前の最長距離を目指さない。',reason:state.desc};
- let mins=base[0],type='基礎',detail=p.stage.focus;
+ const p=progressState(),c=conditionStatus(),diag=progressDiagnosis(),focus=trainingFocus(),base=p.currentStage.training,remain=raceLeft();
+ if(!remain)return {title:'大会当日・大会後',minutes:0,type:'調整',detail:'練習で取り戻そうとせず、体調と公式案内を確認してね。',reason:'大会日を迎えたため'};
+ if(c.status==='alert')return {title:'ランニングを保留して症状を確認',minutes:0,type:'安全確認',detail:c.desc,reason:'安全確認を最優先するため'};
+ if(c.status==='rest')return {title:'休養、または体調に応じた軽い散歩',minutes:0,type:'回復',detail:c.desc,reason:'直近の練習負荷から回復の時間を確保するため'};
+ if(c.status==='recover')return {title:'回復優先。無理なら完全休養',minutes:0,type:'回復',detail:c.desc,reason:'前回の負荷・筋肉痛を考慮したため'};
+ if(remain<=14)return {title:'大会直前の調整',minutes:Math.min(25,base[0]),type:'調整',detail:'新しい長距離や高速走への挑戦は避け、無理なく疲労を抜こう。',reason:'残り2週間は練習不足を取り戻す期間ではないため'};
+ if(!p.last)return {title:'初回：歩きとゆっくりした走りを20分',minutes:20,type:'基礎開始',detail:'歩く5分→短い走歩10分→歩く5分。会話できる強さで始めよう。',reason:'最初の練習実績を集めるため'};
+ if(c.status==='restart'||diag.kind==='rebuild'){const n=p.restartCount===Infinity?0:p.restartCount;const mins=n<3?20:n<6?25:30;return {title:`走歩交互で${mins}分から再開`,minutes:mins,type:'再開',detail:'最初と最後に5分ずつ歩こう。再開後の記録回数と余裕を確かめながら20→25→30分と段階的に調整。筋肉痛や違和感があれば増やさない。',reason:diag.reason};}
+ const weekRuns=trainingRecords().filter(([d])=>d>=weekStart(today()));
+ const last=p.last;let mins=base[weekRuns.length>=2?2:Math.min(weekRuns.length,1)];
+ const recent=trainingRecords().filter(([d])=>d>=shift(today(),-27));
  if(last){
-  const effort=sessionEffort(last[1]);
-  // Keep single-session increases modest until the user has repeated evidence of recovery.
-  if(effort===1&&last[1].pain!=='yes'&&last[1].symptoms!=='alert'&&records().length>=3){mins=Math.min(base[1],Math.max(base[0],Math.round(+last[1].minutes+5)));type='維持・微増';detail='前回に余裕があったため、急に距離を伸ばさず最大5分程度まで時間を調整。'+p.stage.focus;}
-  if(effort===2){mins=Math.min(base[1],Math.max(base[0],Math.round(+last[1].minutes)));type='同程度を再現';detail='前回が適度な負荷だったので、まず同じくらいの時間を安定して繰り返そう。'+p.stage.focus;}
-  // Very long previous session should NOT drag easy session duration beyond the level's plan.
-  mins=Math.min(mins,base[1]);
+  const previous=+last[1].minutes;
+  const eff=sessionEffort(last[1]);
+  // Control abrupt changes in a single session, with a conservative absolute cap.
+  if(eff===3)mins=Math.min(mins,Math.max(15,Math.round(previous*.7)));
+  else if(weekRuns.length>=2&&recent.length>=5&&eff===1)mins=Math.min(mins,Math.max(25,Math.round(Math.max(...recent.map(([,r])=>+r.minutes))*1.12)));
+  else mins=Math.min(mins,Math.max(25,Math.round(previous+10)));
  }
- if(p.lv>=9){detail+=' ペースを意識する練習は体調がよい日だけ。通常の練習は会話できる強さで。';}
- return {title:`${mins}分の楽な${p.lv>=8?'ランニング／走歩':'走歩交互'}`,minutes:mins,type,detail,reason:`現在 Lv.${p.lv}「${p.stage.name}」の練習メニューから選択`};
+ if(recent.length<5)mins=Math.min(mins,45);
+ const weeklyLong=weekRuns.length>=2,readySpeed=p.current>=6&&recent.length>=6&&c.status==='ready';
+ let label=weeklyLong?'今週の長めの楽な走歩':'会話できる強さの楽な走歩';
+ let explain=weeklyLong?'週1回だけ長めの枠。無理な距離の更新はしない。':'前回の負荷と最近の練習時間から調整。歩く区間を増やしてもよい。';
+ if(focus.name==='関門ペースの確認'&&readySpeed&&!weeklyLong){label='楽な走歩＋短いペース確認';explain='十分な基礎がある場合だけ、途中に2〜3分の少し速い区間を1〜2回。肩・胸の違和感があれば実施しない。';}
+ return {title:`${Math.round(mins)}分｜${label}`,minutes:Math.round(mins),type:diag.kind==='warn'?'進捗調整':'通常練習',detail:explain,reason:`実施段階Lv.${p.current}、重点「${focus.name}」。${focus.why}`};
 }
 function paceOutlook(){
- const es=rangeRecords(90).filter(([,r])=>+r.km>=10&&r.mode!=='walk'&&safeToPromote(r)),long=bestKm(records());
- // Require multiple long sessions before even a coarse extrapolation is displayed.
- if(es.length<3||long<14)return {ready:false,n:es.length,reason:`10km以上・過度にきつくない練習が${es.length}回。推定には3回以上と14km以上の経験が必要。`};
- const recent=es.slice(-3),equiv=exponent=>recent.map(([,r])=>paceOf(r)*Math.pow(RACE_KM/Number(r.km),exponent-1)).sort((a,b)=>a-b)[1];
- const fast=equiv(1.06),slow=equiv(1.18);
- const low=Math.min(fast,slow),high=Math.max(fast,slow);
- const finishMinutes=s=>Math.round(s*RACE_KM/60);
- const fmtTime=m=>`${Math.floor(m/60)}時間${String(m%60).padStart(2,'0')}分`;
- return {ready:true,low,high,paceRange:`${pace(low)}〜${pace(high)}/km`,finishRange:`${fmtTime(finishMinutes(low))}〜${fmtTime(finishMinutes(high))}`,n:es.length};
+ const es=rangeRecords(90).filter(([,r])=>!isWalk(r)&&+r.km>=10&&safeToPromote(r)),long=bestKm(trainingRecords());
+ if(es.length<3||long<14)return {ready:false,n:es.length,reason:`10km以上の比較可能な記録${es.length}回、過去最長${num(long)}km。予測は保留。`};
+ const recent=es.slice(-3);
+ const estimate=exp=>recent.map(([,r])=>paceOf(r)*Math.pow(RACE_KM/+r.km,exp-1)).sort((a,b)=>a-b)[1];
+ const low=Math.min(estimate(1.06),estimate(1.18)),high=Math.max(estimate(1.06),estimate(1.18));
+ const time=s=>{const min=Math.round(s*RACE_KM/60);return `${Math.floor(min/60)}時間${String(min%60).padStart(2,'0')}分`};
+ return {ready:true,low,high,paceRange:`${pace(low)}〜${pace(high)}/km`,finishRange:`${time(low)}〜${time(high)}`,n:es.length};
 }
 function raceFeedback(){
- const es=records();if(!es.length)return '実績がたまると、距離・ペース・運動頻度をもとに大会への準備状況を表示するよ。';
- const o=paceOutlook(),long=bestKm(es);
- if(!o.ready)return `現在の最長距離は${num(long)}km。ハーフ全体のペース見込みは判定保留。${o.reason}`;
- return `直近の長めの練習からの単純換算は${o.paceRange}（${o.finishRange}）。未検証の参考レンジで、関門通過や完走を保証する予測ではないよ。`;
+ const o=paceOutlook();return o.ready?`長めの実績からの仮の換算範囲は${o.paceRange}、${o.finishRange}。初ハーフでは誤差が大きく、関門通過・完走の保証ではない。`:`本番ペースの見込みはまだ判定保留。${o.reason}`;
 }
-function stageRoadmapLine(lv,current){
- const st=LEVELS[lv],tag=lv<current?'到達済み':lv===current?'現在':'これから';
- return `<div class="roadmap-card ${lv===current?'stage-current':''}"><div class="stage-title"><span class="stage-bubble ${lv>current?'dim':''}">${lv}</span><div class="stage-content"><b>Lv.${lv}　${esc(st.name)}</b><div class="tiny muted">${esc(st.phase)} · ${esc(st.period)}</div></div><span class="tag ${lv===current?'now':lv<current?'':'off'}">${tag}</span></div><div class="stage-details"><p class="small"><b>到達条件：</b>${esc(st.condition)}</p><p class="small muted">練習：${st.training.join('／')}分を基本とした週2〜3回の段階的なメニュー</p><p class="small muted">意義：${esc(st.meaning)}</p></div></div>`;
+function stageRoadmapLine(lv,current,target){
+ const st=LEVELS[lv],tag=lv<current?'到達済み':lv===current?'現在':'これから',deadline=shift(RACE,-st.dueWeeks*7);
+ return `<div class="roadmap-card ${lv===current?'stage-current':''}"><div class="stage-title"><span class="stage-bubble ${lv>current?'dim':''}">${lv}</span><div class="stage-content"><b>Lv.${lv} ${esc(st.name)}</b><div class="tiny muted">${esc(st.phase)} ／ 目安 ${esc(deadline)}</div></div><span class="tag ${lv===current?'now':lv<current?'':'off'}">${tag}</span></div><div class="stage-details"><p class="small"><b>到達条件：</b>${esc(st.condition)}</p><p class="small muted">基本練習：${st.training.join('／')}分の3種類（休養日を挟む）</p><p class="small muted">意義：${esc(st.meaning)}</p>${lv===target?'<p class="small accent">現在の大会日程からみた目安段階</p>':''}</div></div>`;
 }
+function checkpointTable(){
+ const checkpoints=[['第1関門',6,11,23],['第2関門',10.4,11,55],['第3関門',15.7,12,35],['ゴール',RACE_KM,13,20]];
+ const minute=([,km,h,m])=>h*60+m;
+ const start=10*60+35,margin=5;
+ return `<div class="rowline"><b>10:35にスタート線を越えた場合</b><p class="tiny muted">下の値は一定ペースで移動すると仮定した平均。右側は各関門で5分の余裕を確保する場合。</p></div>`+
+ checkpoints.map(c=>{const allowed=minute(c)-start;const strict=Math.round(allowed*60/c[1]);const buffer=Math.round((allowed-margin)*60/c[1]);return `<div class="rowline spread"><div><b>${c[0]} ${c[1]}km</b><div class="tiny muted">閉鎖 ${String(c[2]).padStart(2,'0')}:${String(c[3]).padStart(2,'0')}</div></div><div class="small" style="text-align:right">閉鎖直前 ${pace(strict)}<br><span class="accent">5分前 ${pace(buffer)}/km</span></div></div>`}).join('')+
+ `<p class="foot">実際のスタート通過時刻で条件は変わる。6kmを含む全関門の確認が必要。数字は完走予測ではないよ。</p>`;
+}
+function abilityHtml(compact=false){
+ const cards=abilityScores();
+ return cards.map(x=>`<div class="ability-row"><div class="spread"><b>${esc(x.name)}</b><span class="${x.score===null?'muted':x.score<40?'warn':'accent'}">${x.score===null?'未判定':x.score+' / 100'}</span></div><div class="meter"><i class="${x.score===null?'unknown':x.score<40?'low':''}" style="width:${x.score===null?0:x.score}%"></i></div>${compact?'':`<p class="tiny muted">${esc(x.why)}</p><p class="small">対策：${esc(x.how)}</p>`}</div>`).join('');
+}
+
 function shell(title,html){
  $('#root').innerHTML=`<main class="wrap"><header class="top"><div><div class="eyebrow">ROAD TO NAGOYA 2027 · v${VERSION}</div><div class="brand">${esc(title)}</div></div><div class="pill">3.14 SUN</div></header>${storageError?'<div class="note alert">保存データの読み込みに問題があったよ。元の記録を確認するまで新規保存しないでね。</div>':''}${html}</main>`;
  const tabs=[['home','⌂','ホーム'],['plan','◎','練習'],['record','＋','記録'],['analysis','▥','分析']];
@@ -137,27 +237,32 @@ function shell(title,html){
  document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;render()});
 }
 function home(){
- const p=progressState(),w=planForToday(),c=conditionStatus(),es=records(),week=es.filter(([d])=>d>=weekStart(today()));
+ const p=progressState(),d=progressDiagnosis(),w=planForToday(),focus=trainingFocus(),es=trainingRecords(),all=records(),week=es.filter(([date])=>date>=weekStart(today()));
  shell('完走までの伴走',`
- <div class="card"><div class="spread"><span class="small muted">名古屋シティマラソン2027</span><span class="small accent">21.0975km / 3時間制限</span></div><div class="big">大会まで ${raceLeft()} 日</div><div class="foot">現在のレベルをもとに練習を組み立て、大会直前は負荷を落として調整するよ。</div></div>
- <div class="card feature"><div class="spread"><span class="small accent">次におすすめの行動</span><span class="tag">${esc(w.type)}</span></div><div class="big" style="font-size:21px;margin-top:8px">${esc(w.title)}</div><p style="margin-top:8px">${esc(w.detail)}</p><div class="foot">理由：${esc(w.reason)}</div><button id="showPlan" class="btn full">レベル別の練習ロードマップ →</button></div>
- <div class="grid3"><div class="card"><div class="small muted">累計回数</div><div class="big">${es.length}<span class="small">回</span></div></div><div class="card"><div class="small muted">累計距離</div><div class="big">${exactKm(totalKm(es))}<span class="small">km</span></div></div><div class="card"><div class="small muted">今週の練習</div><div class="big">${week.length}<span class="small">回</span></div></div></div>
- <div class="card"><div class="spread"><div><div class="small accent">いまのロードマップ</div><div class="big">Lv.${p.lv} <span style="font-size:16px">${esc(p.stage.name)}</span></div></div><span class="tag now">${esc(p.stage.phase)}</span></div><p class="note">${esc(p.stage.meaning)}</p>${p.next?`<p class="medium muted" style="margin-top:9px">次：Lv.${p.next.lv}「${esc(p.next.name)}」<br>${esc(p.next.condition)}</p>`:'<p class="note">最終の参考基準まで到達。ただし完走の保証ではないよ。</p>'}<div class="progress"><i style="width:${p.lv*10}%"></i></div><p class="foot">休養だけでレベルは下がらない。記録の修正・削除時は到達基準を再判定。練習負荷は直近の体調と練習状況で毎回調整。</p></div>
- <div class="card"><div class="spread"><b>今日の回復チェック</b><span class="tag ${c.status==='alert'?'off':''}">${esc(c.title)}</span></div><p class="small muted" style="margin-top:7px">筋肉痛と運動中の違和感を区別して、次回メニューに反映するよ。</p>${checkinForm()}</div>
- <div class="card"><b>完走に向けた評価</b><p class="note">${esc(raceFeedback())}</p><p class="foot">大会ペースはスタート時刻・関門条件によって変わるため、短距離の平均ペースだけで完走を判定しないよ。</p></div><button id="goRecord" class="btn full">今日の運動を記録する</button>`);
- $('#showPlan').onclick=()=>{tab='plan';render()};$('#goRecord').onclick=()=>{editing=today();tab='record';render()};wireCheckin();
+ <div class="card"><div class="spread"><span class="small muted">名古屋シティマラソン2027</span><span class="small accent">21.0975km / 3時間制限</span></div><div class="big">大会まで ${raceLeft()} 日</div><p class="foot">目標：関門に余裕を持った完走。完走予測と到達レベルは同義ではないよ。</p></div>
+ <div class="card feature"><div class="spread"><span class="small accent">次におすすめの行動</span><span class="tag">${esc(w.type)}</span></div><div class="big" style="font-size:20px;margin-top:8px">${esc(w.title)}</div><p style="margin-top:8px">${esc(w.detail)}</p><div class="foot">判断の根拠：${esc(w.reason)}</div><button id="showPlan" class="btn full">再計画・ロードマップを見る →</button></div>
+ <div class="card"><div class="spread"><b>大会までの進捗</b><span class="tag ${d.kind==='ok'?'now':'off'}">${esc(d.status)}</span></div><div class="statusline ${d.kind==='alert'?'alert':d.kind==='rebuild'?'rebuild':d.kind==='warn'?'warn':''}"><p class="small">${esc(d.reason)}</p><p class="small" style="margin-top:7px"><b>対応：</b>${esc(d.action)}</p></div><div class="mininav"><span>到達 Lv.${p.lv}</span><span>現在の練習 Lv.${p.current}</span><span>計画の目安 Lv.${d.target}</span></div><p class="foot">大会から逆算したレベルは計画上の目安。進捗遅延でも無理な距離増加は提案しないよ。</p></div>
+ <div class="grid3"><div class="card"><div class="small muted">累計練習回数</div><div class="big">${es.length}<span class="small">回</span></div><div class="submetric">(全活動 ${all.length}回)</div></div><div class="card"><div class="small muted">累計練習距離</div><div class="big">${exactKm(totalKm(es))}<span class="small">km</span></div><div class="submetric">(全活動 ${exactKm(totalKm(all))}km)</div></div><div class="card"><div class="small muted">今週の走歩</div><div class="big">${week.length}<span class="small">回</span></div><div class="submetric">(全活動 ${all.filter(([date])=>date>=weekStart(today())).length}回)</div></div></div>
+ <div class="card"><div class="spread"><div><div class="small accent">現在の到達レベル</div><div class="big">Lv.${p.lv} <span style="font-size:16px">${esc(p.stage.name)}</span></div></div><span class="tag now">${esc(p.stage.phase)}</span></div><p class="small muted" style="margin-top:9px">${esc(p.stage.meaning)}</p>${p.next?`<p class="note">次のLv.${p.next.lv}：${esc(p.next.condition)}</p>`:'<p class="note">最高到達段階。大会当日の関門通過を保証するものではないよ。</p>'}<div class="progress"><i style="width:${p.lv*10}%"></i></div><p class="foot">過去の到達レベルは休養だけで下げず、次回練習には現在の実績から推定した段階Lv.${p.current}を使用。</p></div>
+ <p class="foot">運動中に肩・胸などの違和感が繰り返し出る場合、スマホ保持だけが原因とは決めず、運動負荷を上げる前に医療機関へ相談してね。</p><button id="goRecord" class="btn full">今日の運動を記録する</button>`);
+ $('#showPlan').onclick=()=>{tab='plan';render()};$('#goRecord').onclick=()=>{editing=today();tab='record';render()};
 }
-function checkinForm(){const checked=currentCheckin()||'';return `<form id="recoveryForm"><div class="choice" style="margin-top:12px">${[['ready','問題なし'],['sore','軽い筋肉痛'],['tired','強い疲労'],['alert','運動中の違和感']].map(([v,n])=>`<label><input type="radio" name="recovery" value="${v}" ${checked===v?'checked':''}>${n}</label>`).join('')}</div><button type="submit" class="btn sub full">今日の状態を反映</button></form><p class="foot">運動中に左肩などの違和感が繰り返し出る場合は、スマホ保持だけが原因と決めず、運動負荷を上げる前に医療機関で確認してね。</p>`}
-function wireCheckin(){const f=$('#recoveryForm');if(!f)return;f.onsubmit=e=>{e.preventDefault();const v=f.elements.recovery.value;if(!v)return alert('状態を1つ選択してね。');data.checkins[today()]=v;if(save())render()}}
+
 function planPage(){
- const s=progressState(),w=planForToday(),state=conditionStatus(),stage=s.stage,all=records();
- shell('レベル別ロードマップ',`
- <div class="card feature"><div class="small accent">現在の練習ステージ</div><div class="big">Lv.${s.lv} ${esc(stage.name)}</div><p class="note">${esc(stage.focus)}</p><div class="spread" style="margin-top:10px"><span class="small muted">想定時期：${esc(stage.period)}</span><span class="tag now">${esc(stage.phase)}</span></div><p class="foot">大会まで残り${raceLeft()}日。時期は参考で、レベルは実績から進む。遅れを取り戻すために急激に負荷を増やすことはしないよ。</p></div>
- <h2 class="section">レベルに紐づく今週の練習</h2><div class="card"><p class="small muted">コンディション：${esc(state.title)}</p>${state.status==='alert'?'<p class="note alert">いまは練習を保留してね。下のメニューは症状の確認が済んでから検討する参考内容だよ。</p>':''}<div class="rowline"><b>1回目｜楽な練習 ${stage.training[0]}分</b><p class="small muted">会話できる強さ。走る＋歩くを組み合わせてOK。</p></div><div class="rowline"><b>2回目｜同じ強さを再現 ${stage.training[1]}分</b><p class="small muted">前回から回復している場合だけ。苦しさや痛みがあれば短縮。</p></div><div class="rowline"><b>3回目｜余裕がある週だけ ${stage.training[2]}分まで</b><p class="small muted">週1回の長めの練習枠。前週からいきなり長くせず、時間を少しずつ延ばす。</p></div><p class="foot">目安の上限をそのまま毎週実施する必要はないよ。回復優先で週2回でもOK。</p></div>
- <div class="card"><div class="small accent">次回に優先する提案</div><div class="big" style="font-size:19px;margin-top:5px">${esc(w.title)}</div><p class="note">${esc(w.detail)}</p><p class="foot">${esc(w.reason)}</p></div>
- <h2 class="section">Lv.0 → Lv.10 一体型ロードマップ</h2><div class="card">${LEVELS.map((_,i)=>stageRoadmapLine(i,s.lv)).join('')}<p class="foot">このロードマップがレベル判定と練習メニューの共通データ。日付は目安であり、練習の進級を強制しないよ。高いレベルでも大会の完走は保証されない。</p></div>
- <div class="card"><b>大会での「余裕」の考え方</b><p class="note">最終レベルは距離とペースの参考実績により判定するよ。実際の関門通過にはスタート位置や混雑、当日の天候も影響する。練習記録から完走確率を断定しない。</p><p class="foot">現在の記録件数：${all.length}回</p><a href="https://city-marathon.nagoya/outline/general/" target="_blank" rel="noopener noreferrer">名古屋シティマラソン公式要項 ↗</a></div>`);
+ const p=progressState(),w=planForToday(),d=progressDiagnosis(),focus=trainingFocus(),t=p.currentStage.training,ws=raceLeft()/7;
+ shell('練習と再計画',`
+ <div class="card feature"><div class="small accent">現在の実施段階：Lv.${p.current}</div><div class="big" style="font-size:22px">${esc(p.currentStage.name)}</div><p class="note">${esc(p.currentStage.focus)}</p><div class="mininav" style="margin-top:11px"><span>獲得済み Lv.${p.lv}</span><span>計画目安 Lv.${d.target}</span><span>大会まで ${Math.ceil(ws)}週間</span></div><p class="foot">休止後は以前の獲得レベルを保持したまま、実施負荷を現在の練習実績に合わせて下げるよ。</p></div>
+ <div class="card"><b>進捗判断：${esc(d.status)}</b><div class="statusline ${d.kind==='alert'?'alert':d.kind==='rebuild'?'rebuild':d.kind==='warn'?'warn':''}"><p class="small">${esc(d.reason)}</p><p class="small" style="margin-top:7px">${esc(d.action)}</p></div><p class="small"><b>今回の強化重点：</b>${esc(focus.name)}</p><p class="tiny muted">${esc(focus.why)}</p></div>
+ <h2 class="section">いまの段階に合わせた週間練習</h2><div class="card">${d.kind==='alert'?'<p class="note alert">運動中の症状がある場合は、下記を実施せず医療機関で安全を確認してね。</p>':''}
+ <div class="rowline"><b>1回目｜${t[0]}分の楽な走歩</b><p class="small muted">会話できる強さ。無理なら途中で歩く。</p></div>
+ <div class="rowline"><b>2回目｜${t[1]}分の楽な走歩</b><p class="small muted">前回から少なくとも休養日を挟み、強度は上げない。</p></div>
+ <div class="rowline"><b>3回目｜最長${t[2]}分の長めの枠</b><p class="small muted">十分な反復実績と回復がある週にだけ。直近の最長時間から急増させず、今の週に無理なら見送る。</p></div>
+ <p class="foot">各時間はレベルの参考上限。実際の「次のおすすめ」は最近の練習実績からさらに短く調整される。3回目を無理に埋める必要はないよ。</p></div>
+ <div class="card"><div class="small accent">次のおすすめ</div><div class="big" style="font-size:19px;margin-top:7px">${esc(w.title)}</div><p class="note">${esc(w.detail)}</p><p class="foot">${esc(w.reason)}</p></div>
+ <h2 class="section">能力別の不足と対策</h2><div class="card">${abilityHtml(false)}<p class="foot">0〜100はアプリ内の達成基準に対する目安。持久力は16km/150分、継続は28日8回、関門ペースは比較可能な5km以上、負荷の余裕は自己申告を利用。未判定を良好扱いしない。</p></div>
+ <h2 class="section">Lv.0〜10 一体型ロードマップ</h2><div class="card">${LEVELS.map((_,i)=>stageRoadmapLine(i,p.lv,d.target)).join('')}<p class="foot">目標到達日は自動的に大会日から逆算。日付はアプリ独自の計画目安で、達成期限を過ぎても危険な負荷増加はしない。レベル判定と実施メニューは同一の定義を参照しているよ。</p></div>`);
 }
+
 function recordPage(){
  const r=data.records[editing]||{},eff=r.effort??(r.fatigue==null?2:sessionEffort(r)),mode=r.mode||'run_walk';
  shell('運動を記録',`
@@ -167,7 +272,7 @@ function recordPage(){
  <label>運動後の強度</label><div class="choice">${[[1,'余裕あり'],[2,'ちょうどいい'],[3,'かなりきつい']].map(([v,n])=>`<label><input name="effort" type="radio" value="${v}" ${Number(eff)===v?'checked':''}>${n}</label>`).join('')}</div>
  <label>痛み・違和感</label><div class="choice">${[['none','なし'],['sore','筋肉痛のみ'],['alert','走行中の違和感・痛み']].map(([v,n])=>`<label><input name="symptoms" type="radio" value="${v}" ${(r.symptoms||(r.pain==='yes'?'alert':'none'))===v?'checked':''}>${n}</label>`).join('')}</div>
  <p class="foot">平均ペースは自動計算。走行中の左肩などの違和感は筋肉痛とは分けて記録してね。異常がある場合は練習を中止して確認しよう。</p><button class="btn full" type="submit">記録して練習を更新</button></form><button id="todayBtn" class="btn sub full">今日の日付に戻る</button><button id="deleteBtn" class="btn danger full">この日の記録を削除する</button></div>
- <h2 class="section">最近の記録</h2><div class="card">${records().slice(-7).reverse().map(([d,r])=>`<div class="rowline spread"><div><b>${dateLabel(d)}</b><div class="small muted">${num(r.km)}km ・${num(r.minutes)}分・${pace(paceOf(r))}/km</div></div><button data-edit="${esc(d)}" class="btn sub smallbtn">編集</button></div>`).join('')||'<div class="empty">まだ記録はないよ。</div>'}</div>
+ <h2 class="section">最近の記録</h2><div class="card">${records().slice(-7).reverse().map(([d,r])=>`<div class="rowline spread"><div><b>${dateLabel(d)}</b><div class="small muted">${isWalk(r)?'<span class="tag walktag">散歩</span> ':''}${num(r.km)}km ・${num(r.minutes)}分・${pace(paceOf(r))}/km</div></div><button data-edit="${esc(d)}" class="btn sub smallbtn">編集</button></div>`).join('')||'<div class="empty">まだ記録はないよ。</div>'}</div>
  <p class="foot">過去の記録は同じiPhoneのWebサイト保存領域から引き継ぐ。Safariとホーム画面の保存領域が分かれる場合、記録は自動同期されないよ。</p>`);
  const f=$('#recordForm');f.elements.day.onchange=()=>{const chosen=f.elements.day.value;if(safeDate(chosen)&&chosen<=today()){editing=chosen;render()}else{f.elements.day.value=editing}};
  f.onsubmit=e=>{e.preventDefault();const km=Number(f.elements.km.value),mins=Number(f.elements.mins.value);if(!(km>0&&km<=200&&mins>0&&mins<=1000))return alert('距離と時間を確認してね。');if(mins*60/km<120)return alert('2分/kmより速い計算になっているので、入力値を確認してね。');const symptoms=f.elements.symptoms.value;
@@ -181,69 +286,148 @@ function summarize(period,all){
  if(period==='all')return all;
  const start=shift(today(),1-Number(period));return all.filter(([d])=>d>=start);
 }
+// Charts use fixed calendar ticks, never a separate label for every record.
+// This keeps 14/30-day charts readable and also scales to many months or years.
+const WALK_COLOR='#8dafff',RUN_COLOR='#79ddc4';
 function trendGroups(items,scope){
- const maxDays=items.length?days(items[0][0],today()):0;
- const groupByWeek=scope==='all'&&maxDays>35;
- const obj=new Map();
- for(const [d,r] of items){const key=groupByWeek?weekStart(d):d;const prev=obj.get(key)||{key,km:0,mins:0,count:0};prev.km+=+r.km;prev.mins+=+r.minutes;prev.count++;obj.set(key,prev)}
- const vals=[...obj.values()].sort((a,b)=>a.key.localeCompare(b.key));return {groupByWeek,values:vals};
+ const span=items.length?days(items[0][0],today()):0;
+ const unit=scope==='all'?(span>210?'month':span>35?'week':'day'):'day';
+ const buckets=new Map();
+ for(const [d,r] of items){
+  const key=unit==='week'?weekStart(d):unit==='month'?d.slice(0,7)+'-01':d;
+  const v=buckets.get(key)||{key,runKm:0,runMin:0,runCount:0,walkKm:0,walkMin:0,walkCount:0};
+  if(isWalk(r)){v.walkKm+=Number(r.km);v.walkMin+=Number(r.minutes);v.walkCount++;}
+  else{v.runKm+=Number(r.km);v.runMin+=Number(r.minutes);v.runCount++;}
+  buckets.set(key,v);
+ }
+ const values=[...buckets.values()].sort((a,b)=>a.key.localeCompare(b.key));
+ return {unit,values,groupByWeek:unit==='week',groupByMonth:unit==='month'};
+}
+function axisDomain(items,scope,unit){
+ if(scope!=='all')return {start:shift(today(),1-Number(scope)),end:today()};
+ if(!items.length)return {start:shift(today(),-13),end:today()};
+ let start=unit==='week'?weekStart(items[0][0]):unit==='month'?items[0][0].slice(0,7)+'-01':items[0][0];
+ let end=today();
+ if(days(start,end)<7)start=shift(end,-7);
+ return {start,end};
+}
+function axisLabels(start,end,unit){
+ const span=Math.max(1,days(start,end));
+ const count=span<22?3:span<95?4:5;
+ const dates=Array.from({length:count},(_,i)=>shift(start,Math.round(i*span/(count-1))));
+ const showYear=span>340;
+ return dates.map((d,i)=>({d,label:showYear?d.slice(2,4)+'/'+dateLabel(d):dateLabel(d),anchor:i===0?'start':i===count-1?'end':'middle'}));
 }
 function svgTrend(items,scope,type){
- const {groupByWeek,values}=trendGroups(items,scope);
+ const {unit,values}=trendGroups(items,scope);
  if(!values.length)return '<div class="empty">この期間の記録はまだないよ。</div>';
- const H=190,L=39,R=9,T=15,B=157,W=344;
- const result=values.slice();
- const V=x=>type==='km'?x.km:type==='pace'?(x.km?x.mins*60/x.km:0):x.total;
- const vals=result.map(V),MIN=type==='pace'?Math.max(0,Math.floor((Math.min(...vals)-40)/60)*60):0,MAX=type==='pace'?Math.max(MIN+180,Math.ceil((Math.max(...vals)+40)/60)*60):Math.max(2,Math.ceil(Math.max(...vals)*1.15));
- const firstDay=scope==='all'?result[0].key:shift(today(),1-Number(scope));const lastDay=scope==='all'?result.at(-1).key:today();const span=Math.max(1,days(firstDay,lastDay));const X=i=>L+Math.min(1,Math.max(0,days(firstDay,result[i].key)/span))*(W-L-R);
- const Y=v=>B-((v-MIN)/(MAX-MIN))*(B-T);
- let str=`<svg class="chart" viewBox="0 0 ${W} ${H}" aria-label="${type==='pace'?'ペース':type==='km'?'距離':'累計距離'}の推移" role="img">`;
- for(let i=0;i<=3;i++){const v=MIN+(MAX-MIN)*i/3,y=Y(v);str+=`<line class="grid" x1="${L}" x2="${W-R}" y1="${y}" y2="${y}"/><text x="${L-5}" y="${y+4}" text-anchor="end">${type==='pace'?pace(v):Math.round(v)}</text>`}
- if(type==='km'){const width=Math.max(2,Math.min(20,(W-L-R)/result.length*.55));result.forEach((p,i)=>{const v=V(p),y=Y(v);str+=`<rect x="${X(i)-width/2}" y="${y}" width="${width}" height="${Math.max(1,B-y)}" fill="#79ddc4" rx="2"><title>${p.key}：${num(v)}km</title></rect>`})}
- else{let prev=null;result.forEach((p,i)=>{const v=V(p),x=X(i),y=Y(v);if(prev)str+=`<line x1="${prev[0]}" x2="${x}" y1="${prev[1]}" y2="${y}" stroke="#79ddc4" stroke-width="2"/>`;str+=`<circle cx="${x}" cy="${y}" r="${result.length>45?2.3:4}" fill="#79ddc4"><title>${p.key}：${type==='pace'?pace(v)+'/km':num(v)+'km'}</title></circle>`;prev=[x,y]})}
- const markers=new Set([0,result.length-1,Math.floor((result.length-1)/2)]);
- result.forEach((p,i)=>{if(markers.has(i))str+=`<text x="${X(i)}" y="${H-11}" text-anchor="${i===0?'start':i===result.length-1?'end':'middle'}">${dateLabel(p.key)}</text>`});
- str+='</svg>';
- return str+`<p class="foot">${groupByWeek?'全期間は週単位で集計。':'実施した日を表示。'} ${type==='pace'?'区間の距離加重平均ペース。速さは値が小さいほど速い。':''}</p>`;
+ const W=354,H=206,L=44,R=13,T=17,B=163;
+ const {start,end}=axisDomain(items,scope,unit),span=Math.max(1,days(start,end));
+ const X=d=>L+Math.max(0,Math.min(1,days(start,d)/span))*(W-L-R);
+ const isDistance=type==='km';
+ const getVal=(v,walk)=>isDistance?(walk?v.walkKm:v.runKm):walk?(v.walkKm?v.walkMin*60/v.walkKm:null):(v.runKm?v.runMin*60/v.runKm:null);
+ const allVal=values.flatMap(v=>[getVal(v,false),getVal(v,true)]).filter(v=>v!==null&&Number.isFinite(v));
+ if(!allVal.length)return '<div class="empty">この期間に表示できる記録はないよ。</div>';
+ const low=isDistance?0:Math.max(0,Math.floor((Math.min(...allVal)-45)/60)*60);
+ const high=isDistance?Math.max(2,Math.ceil(Math.max(...allVal)*1.18)):Math.max(low+120,Math.ceil((Math.max(...allVal)+45)/60)*60);
+ const Y=v=>B-(v-low)/(high-low)*(B-T);
+ let out=`<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${isDistance?'距離':'ペース'}の推移。緑はランニング・走歩、青はウォーキング">`;
+ for(let i=0;i<=3;i++){
+  const v=low+(high-low)*i/3,y=Y(v);
+  out+=`<line class="grid" x1="${L}" x2="${W-R}" y1="${y}" y2="${y}"/><text x="${L-6}" y="${y+4}" text-anchor="end">${isDistance?num(v).replace(/\.0$/,''):pace(v)}</text>`;
+ }
+ if(isDistance){
+  const binSpan=unit==='day'?Math.max(1,span):Math.max(1,values.length);
+  const barWidth=Math.max(2,Math.min(15,(W-L-R)/binSpan*.58));
+  for(const v of values){
+   let center=X(v.key);
+   // Side-by-side bars when a group contains both kinds of activity.
+   const both=v.runKm>0&&v.walkKm>0;
+   for(const [walk,km,color] of [[false,v.runKm,RUN_COLOR],[true,v.walkKm,WALK_COLOR]]){
+    if(km<=0)continue;
+    const width=both?barWidth*.48:barWidth;
+    const px=center-(both?(walk?-0.02:-0.02):0)-width/2+(both?(walk?width*.55:-width*.55):0);
+    const yy=Y(km);
+    out+=`<rect x="${px}" y="${yy}" width="${width}" height="${Math.max(1,B-yy)}" rx="2" fill="${color}"><title>${v.key} ${walk?'ウォーキング':'ラン・走歩'} ${exactKm(km)}km</title></rect>`;
+   }
+  }
+ }else{
+  for(const [walk,color] of [[false,RUN_COLOR],[true,WALK_COLOR]]){
+   const points=values.map(v=>({v:getVal(v,walk),d:v.key})).filter(p=>p.v!==null&&Number.isFinite(p.v));
+   let prev=null;
+   for(const pt of points){
+    const x=X(pt.d),y=Y(pt.v);
+    if(prev)out+=`<line x1="${prev.x}" x2="${x}" y1="${prev.y}" y2="${y}" stroke="${color}" stroke-width="2" ${walk?'stroke-dasharray="4 3"':''}/>`;
+    out+=`<circle cx="${x}" cy="${y}" r="${points.length>35?2.5:4}" fill="${color}"><title>${pt.d} ${walk?'ウォーキング':'ラン・走歩'} ${pace(pt.v)}/km</title></circle>`;
+    prev={x,y};
+   }
+  }
+ }
+ // Date labels come from evenly spaced calendar ticks, not activity dates.
+ for(const tick of axisLabels(start,end,unit))out+=`<text x="${X(tick.d)}" y="${H-16}" text-anchor="${tick.anchor}">${tick.label}</text>`;
+ out+='</svg>';
+ const unitText=unit==='week'?'全期間は週単位':unit==='month'?'長期間の記録は月単位':'日単位';
+ return out+`<p class="foot">${unitText}で表示。${isDistance?'緑と青の距離を区別。':'各区間の距離加重平均ペース。緑と青は別系列でつなぐ。'}</p>`;
 }
+function chartLegend(){return `<div class="chartlegend"><span><i style="background:${RUN_COLOR}"></i>ランニング＋走歩</span><span><i style="background:${WALK_COLOR}"></i>ウォーキング</span></div>`}
 function cumulativeChart(all){
  if(!all.length)return '<div class="empty">まだ記録がないよ。</div>';
- let running=0;
- let points=all.map(([d,r])=>({date:d,cum:running+=Number(r.km)}));
- if(points.length>40){const m=new Map();for(const p of points)m.set(weekStart(p.date),p);points=[...m.values()];}
- const W=344,H=188,L=42,R=10,T=14,B=155,high=Math.max(2,Math.ceil(points.at(-1).cum*1.1)),span=Math.max(1,days(points[0].date,points.at(-1).date));
- const X=d=>points.length===1?L+(W-L-R)/2:L+(days(points[0].date,d)/span)*(W-L-R),Y=n=>B-n/high*(B-T);
- let svg=`<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="累計走行距離の推移">`;
- for(let k=0;k<=3;k++){const v=high*k/3,y=Y(v);svg+=`<line class="grid" x1="${L}" x2="${W-R}" y1="${y}" y2="${y}"/><text x="${L-5}" y="${y+4}" text-anchor="end">${Math.round(v)}</text>`}
- for(let i=0;i<points.length;i++){let p=points[i],x=X(p.date),y=Y(p.cum);if(i>0){let prior=points[i-1];svg+=`<line x1="${X(prior.date)}" y1="${Y(prior.cum)}" x2="${x}" y2="${y}" stroke="#79ddc4" stroke-width="2.3"/>`}svg+=`<circle cx="${x}" cy="${y}" r="${points.length>40?2.4:3.5}" fill="#79ddc4"><title>${p.date}：${num(p.cum)}km</title></circle>`}
- svg+=`<text x="${X(points[0].date)}" y="${H-12}" text-anchor="start">${dateLabel(points[0].date)}</text>`;
- if(points.length>1)svg+=`<text x="${X(points.at(-1).date)}" y="${H-12}" text-anchor="end">${dateLabel(points.at(-1).date)}</text>`;
- return svg+'</svg><p class="foot">累計は減らずに積み上がる。全期間が長い場合は週末の値で表示するよ。</p>';
+ let run=0,walk=0;
+ let points=all.map(([d,r])=>{if(isWalk(r))walk+=Number(r.km);else run+=Number(r.km);return {date:d,run,walk}});
+ const span=days(points[0].date,today());
+ if(points.length>55){
+  const unit=span>210?'month':'week',m=new Map();
+  for(const p of points)m.set(unit==='week'?weekStart(p.date):p.date.slice(0,7),p);
+  points=[...m.values()].sort((a,b)=>a.date.localeCompare(b.date));
+ }
+ const W=354,H=202,L=46,R=12,T=14,B=162;
+ const {start,end}=axisDomain(all,'all','day'),domain=Math.max(1,days(start,end)),high=Math.max(2,Math.ceil(Math.max(run,walk)*1.12));
+ const X=d=>L+Math.max(0,Math.min(1,days(start,d)/domain))*(W-L-R),Y=n=>B-n/high*(B-T);
+ let out=`<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="累計のラン・走歩距離とウォーキング距離を色別に表示">`;
+ for(let k=0;k<=3;k++){const v=high*k/3,y=Y(v);out+=`<line class="grid" x1="${L}" x2="${W-R}" y1="${y}" y2="${y}"/><text x="${L-6}" y="${y+4}" text-anchor="end">${Math.round(v)}</text>`;}
+ for(const [key,color] of [['run',RUN_COLOR],['walk',WALK_COLOR]]){
+  for(let i=0;i<points.length;i++){
+   const p=points[i],x=X(p.date),y=Y(p[key]);
+   if(i){const prev=points[i-1];out+=`<line x1="${X(prev.date)}" y1="${Y(prev[key])}" x2="${x}" y2="${y}" stroke="${color}" stroke-width="2.3" ${key==='walk'?'stroke-dasharray="4 3"':''}/>`;}
+   if(i===points.length-1||i===0)out+=`<circle cx="${x}" cy="${y}" r="3.4" fill="${color}"><title>${p.date}：${key==='walk'?'ウォーキング':'ラン・走歩'} ${num(p[key])}km</title></circle>`;
+  }
+ }
+ for(const tick of axisLabels(start,end,'day'))out+=`<text x="${X(tick.d)}" y="${H-15}" text-anchor="${tick.anchor}">${tick.label}</text>`;
+ return out+'</svg>'+chartLegend()+'<p class="foot">ラン・走歩とウォーキング、それぞれの累計距離を別系列で表示。全活動の累計は両方を合計した値だよ。</p>';
 }
 function monthlyRows(all){
- const monthMap=new Map();for(const [d,r] of all){const m=d.slice(0,7),v=monthMap.get(m)||{count:0,km:0,minutes:0};v.count++;v.km+=+r.km;v.minutes+=+r.minutes;monthMap.set(m,v)}
- return [...monthMap.entries()].sort((a,b)=>b[0].localeCompare(a[0])).map(([m,v])=>`<div class="rowline spread"><b>${m.replace('-','年')}月</b><div class="small muted" style="text-align:right">${v.count}回 ／ ${num(v.km)}km<br>${pace(v.minutes*60/v.km)}/km</div></div>`).join('');
+ const map=new Map();
+ for(const [d,r] of all){
+  const m=d.slice(0,7),v=map.get(m)||{runCount:0,runKm:0,runMin:0,walkCount:0,walkKm:0,walkMin:0};
+  if(isWalk(r)){v.walkCount++;v.walkKm+=+r.km;v.walkMin+=+r.minutes;}
+  else{v.runCount++;v.runKm+=+r.km;v.runMin+=+r.minutes;}
+  map.set(m,v);
+ }
+ return [...map.entries()].sort((a,b)=>b[0].localeCompare(a[0])).map(([m,v])=>`<div class="rowline spread"><b>${m.replace('-','年')}月</b><div class="small" style="text-align:right">ラン・走歩 ${v.runCount}回／${num(v.runKm)}km<br><span class="muted">(全活動 ${v.runCount+v.walkCount}回／${num(v.runKm+v.walkKm)}km)</span>${v.walkCount?`<br><span class="walktext">歩き ${v.walkCount}回／${num(v.walkKm)}km</span>`:''}</div></div>`).join('');
 }
 function analysisPage(){
- const all=records(),shown=summarize(analysisRange,all),total=totalKm(all),mins=totalMinutes(all),best=bestKm(all),avg=total>0?mins*60/total:0;
- const {groupByWeek}=trendGroups(shown,analysisRange);
- shell('積み上がる記録',`
- <div class="small accent" style="margin-bottom:8px">これまでのすべての実績</div>
- <div class="grid3"><div class="card"><div class="small muted">累計練習回数</div><div class="big">${all.length}<span class="small">回</span></div></div><div class="card"><div class="small muted">累計距離</div><div class="big">${exactKm(total)}<span class="small">km</span></div></div><div class="card"><div class="small muted">最長記録</div><div class="big">${num(best)}<span class="small">km</span></div></div></div>
- <div class="card"><div class="grid2"><div><div class="small muted">累計運動時間</div><div class="big" style="font-size:19px">${formatHours(mins)}</div></div><div><div class="small muted">全期間の距離加重平均</div><div class="big" style="font-size:19px">${pace(avg)}<span class="small">/km</span></div></div></div><p class="foot">走る・歩くの両方を含む平均ペース。競技用の予測タイムではないよ。</p></div>
- <h2 class="section">距離とペースの推移</h2><div class="card"><div class="small muted">表示期間を切り替え</div><div class="segmented">${[['14','14日'],['30','30日'],['all','全期間']].map(([v,n])=>`<button type="button" data-range="${v}" class="${v===analysisRange?'on':''}">${n}</button>`).join('')}</div><p class="foot">${analysisRange==='all'?'最初の記録から現在まで。':'指定日数内の練習。'} ${shown.length}回の実績を表示${groupByWeek?'（週単位集計）':''}。</p>
- <div class="rowline"><b>距離の推移（km）</b>${svgTrend(shown,analysisRange,'km')}</div><div class="rowline"><b>ペースの推移（分:秒/km）</b>${svgTrend(shown,analysisRange,'pace')}</div>
- <p class="foot">練習強度・走歩配分・コースが異なる日は、ペースの変化だけで成長を断定できないよ。</p></div>
- <div class="card"><b>累計距離の積み上がり</b><p class="small muted">最初の記録からの全期間</p>${cumulativeChart(all)}</div>
- <h2 class="section">月ごとの積み上がり</h2><div class="card">${monthlyRows(all)||'<div class="empty">練習を記録すると月別の累計が表示されるよ。</div>'}</div>
- <h2 class="section">記録の履歴</h2><div class="card">${(showAllHistory?all.slice().reverse():all.slice(-12).reverse()).map(([d,r])=>`<div class="rowline spread"><div><b>${esc(d)}</b><div class="small muted">${num(r.km)}km ／ ${num(r.minutes)}分 ／ ${pace(paceOf(r))}/km</div></div><button type="button" class="btn sub smallbtn" data-edit="${esc(d)}">編集</button></div>`).join('')||'<div class="empty">記録はまだないよ。</div>'}${all.length>12?`<button class="btn sub full" id="historyToggle">${showAllHistory?'直近12件に戻す':'すべての履歴を見る（'+all.length+'件）'}</button>`:''}</div>
- <h2 class="section">大会で必要なペースと見込み</h2><div class="card"><div class="rowline"><b>現時点の見込み</b><p class="note">${esc(raceFeedback())}</p></div><div class="rowline spread"><div class="small muted">10:35スタート：第1関門6km</div><b>8:00/km以下</b></div><div class="rowline spread"><div class="small muted">10:40スタート：第1関門6km</div><b>7:10/km以下</b></div><p class="foot">いずれも閉鎖時刻ちょうどの必要平均で、余裕時間を含まない。実際のスタート通過時刻・後方の混雑・天候・他の関門によって必要な余裕は変わるよ。記録が十分になったときの推定は独自の距離延長式による幅の広い参考値。</p></div>
- <h2 class="section">次の練習につながる分析</h2><div class="card"><p class="note">${esc(raceFeedback())}</p><p class="note">現在のロードマップ：Lv.${progressState().lv}「${esc(progressState().stage.name)}」</p><p class="note">次の行動：${esc(planForToday().title)}</p><button class="btn full" id="toPlan">練習ロードマップを見る →</button></div><p class="foot">記録は端末の保存領域に保管。サイトデータ削除や端末変更では失われる場合があるよ。</p>`);
+ const all=records(),running=trainingRecords(),walking=walkingRecords(),shown=summarize(analysisRange,all),p=progressState(),d=progressDiagnosis(),outlook=paceOutlook();
+ const total=totalKm(running),allDistance=totalKm(all),mins=totalMinutes(running),best=bestKm(running),avg=total>0?mins*60/total:0;
+ const {unit}=trendGroups(shown,analysisRange);
+ shell('記録と大会への分析',`
+ <div class="small accent" style="margin-bottom:8px">累計の主集計はラン・走歩。括弧内はウォーキングを含む全活動。</div>
+ <div class="grid3"><div class="card"><div class="small muted">累計練習回数</div><div class="big">${running.length}<span class="small">回</span></div><div class="submetric">(全活動 ${all.length}回)</div></div><div class="card"><div class="small muted">累計練習距離</div><div class="big">${exactKm(total)}<span class="small">km</span></div><div class="submetric">(全活動 ${exactKm(allDistance)}km)</div></div><div class="card"><div class="small muted">最長練習</div><div class="big">${num(best)}<span class="small">km</span></div><div class="submetric">ラン＋走歩のみ</div></div></div>
+ <div class="card"><div class="grid2"><div><div class="small muted">累計練習時間</div><div class="big" style="font-size:19px">${formatHours(mins)}</div><div class="submetric">(全活動 ${formatHours(totalMinutes(all))})</div></div><div><div class="small muted">ラン＋走歩の平均ペース</div><div class="big" style="font-size:19px">${pace(avg)}<span class="small">/km</span></div><div class="submetric">ウォーキングは含まない</div></div></div></div>
+ <h2 class="section">大会への準備状況</h2><div class="card"><div class="spread"><b>現在の進捗：${esc(d.status)}</b><span class="tag ${d.kind==='ok'?'now':'off'}">Lv.${p.lv} / 10</span></div><p class="note">${esc(d.reason)}</p><p class="small" style="margin-top:10px"><b>完走ペースの見込み：</b>${esc(raceFeedback())}</p>
+ ${checkpointTable()}<p class="foot">10:40通過なら第1関門の閉鎖直前に必要なペースは7:10/km。上の5分前ペースも全関門を一度に満たす一定ペースを保証するものではないので、最も厳しい条件を確認してね。</p>
+ <p class="small"><b>現在の課題：</b>${esc(trainingFocus().name)}</p><p class="tiny muted">${esc(trainingFocus().why)}</p><button class="btn full" id="toPlan">対策と再計画を見る →</button></div>
+ <h2 class="section">能力別の到達度</h2><div class="card">${abilityHtml(false)}<p class="foot">能力別の値はデータと基準を透明化するための内部指標。医学的な走力、心肺機能、完走確率を示す点数ではない。</p></div>
+ <h2 class="section">距離とペースの推移</h2><div class="card"><div class="small muted">表示期間</div><div class="segmented">${[['14','14日'],['30','30日'],['all','全期間']].map(([v,n])=>`<button type="button" data-range="${v}" class="${v===analysisRange?'on':''}">${n}</button>`).join('')}</div><p class="foot">${analysisRange==='all'?'初回から現在まで。':'指定期間内。'} ラン＋走歩${shown.filter(([,r])=>!isWalk(r)).length}回、ウォーキング${shown.filter(([,r])=>isWalk(r)).length}回${unit==='week'?'（週別）':unit==='month'?'（月別）':''}。</p>
+ ${chartLegend()}<div class="rowline"><b>距離の推移（km）</b>${svgTrend(shown,analysisRange,'km')}</div><div class="rowline"><b>ペースの推移（分:秒/km）</b>${svgTrend(shown,analysisRange,'pace')}</div><p class="foot">運動の種類、コース、強度が違えばペースのみで成長とは判断できない。</p></div>
+ <div class="card"><b>累計距離の積み上がり</b><p class="small muted">ラン＋走歩とウォーキングを別系列表示</p>${cumulativeChart(all)}</div>
+ <h2 class="section">月ごとの実績</h2><div class="card">${monthlyRows(all)||'<div class="empty">まだ記録がないよ。</div>'}</div>
+ <h2 class="section">全記録</h2><div class="card">${(showAllHistory?all.slice().reverse():all.slice(-12).reverse()).map(([day,r])=>`<div class="rowline spread"><div><b>${esc(day)}</b> ${isWalk(r)?'<span class="tag walktag">ウォーキング</span>':''}<div class="small muted">${num(r.km)}km ／ ${num(r.minutes)}分 ／ ${pace(paceOf(r))}/km</div></div><button type="button" class="btn sub smallbtn" data-edit="${esc(day)}">編集</button></div>`).join('')||'<div class="empty">記録はまだないよ。</div>'}${all.length>12?`<button class="btn sub full" id="historyToggle">${showAllHistory?'直近12件に戻す':'すべて表示（'+all.length+'件）'}</button>`:''}</div><p class="foot">データはこの端末のWebサイト保存領域に格納。SafariのWebサイトデータを削除すると消えることがあるので注意。</p>`);
  document.querySelectorAll('[data-range]').forEach(b=>b.onclick=()=>{analysisRange=b.dataset.range;render()});
  document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>{editing=b.dataset.edit;tab='record';render()});
  if($('#historyToggle'))$('#historyToggle').onclick=()=>{showAllHistory=!showAllHistory;render()};
  $('#toPlan').onclick=()=>{tab='plan';render()};
 }
+
 function render(){if(tab==='home')home();else if(tab==='plan')planPage();else if(tab==='record')recordPage();else analysisPage()}
 // A previous version's records are read with the same key. No migration/deletion is performed.
 render();
