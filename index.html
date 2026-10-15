@@ -1,4 +1,4 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0e171d"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="NAGOYA RUN"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><title>NAGOYA RUN | 個別最適な伴走 v0.5</title><style>:root{color-scheme:dark;--bg:#0e171d;--card:#19252f;--soft:#263a42;--line:#34464e;--text:#f1f7f7;--muted:#acbec8;--accent:#79ddc4;--warning:#ffd69a;--danger:#f4b0b0}
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0e171d"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="NAGOYA RUN"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><title>NAGOYA RUN | 心拍分析と時間入力 v0.6</title><style>:root{color-scheme:dark;--bg:#0e171d;--card:#19252f;--soft:#263a42;--line:#34464e;--text:#f1f7f7;--muted:#acbec8;--accent:#79ddc4;--warning:#ffd69a;--danger:#f4b0b0}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.58 -apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN",sans-serif}button,input,select{font:inherit}
 h1,h2,h3,p{margin:0}p+p{margin-top:8px}a{color:var(--accent)}
 .wrap{max-width:640px;margin:auto;padding:calc(18px + env(safe-area-inset-top)) 15px calc(112px + env(safe-area-inset-bottom))}
@@ -10,7 +10,7 @@ h1,h2,h3,p{margin:0}p+p{margin-top:8px}a{color:var(--accent)}
 .progress{height:7px;background:#334750;border-radius:20px;overflow:hidden;margin:12px 0 8px}.progress>i{display:block;height:100%;border-radius:20px;background:#79ddc4}
 .tabbar{position:fixed;z-index:9;bottom:0;left:0;right:0;display:flex;justify-content:center;background:rgba(14,23,29,.97);border-top:1px solid var(--line);backdrop-filter:blur(12px);padding-bottom:env(safe-area-inset-bottom)}.tabbar button{flex:1;max-width:160px;border:0;background:transparent;color:var(--muted);padding:11px 2px 9px;font-size:12px}.tabbar button.on{color:var(--accent);font-weight:850}.tabbar b{display:block;font-size:21px;line-height:1.2}
 .btn{cursor:pointer;display:block;border:0;border-radius:11px;padding:11px 14px;font-size:14px;font-weight:850;text-align:center;background:var(--accent);color:#112b26}.btn.full{width:100%;margin-top:9px}.btn.sub{background:#2e434f;color:var(--text);border:1px solid #506a75}.btn.danger{color:#ffdbdb;background:#4c373b}.btn.smallbtn{font-size:12px;padding:7px 10px}.btn:focus-visible,.segmented button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-label{display:block;font-size:12px;color:var(--muted);margin:13px 0 5px}input,select{display:block;background:#101e26;border:1px solid #50636c;border-radius:10px;padding:11px 10px;width:100%;max-width:100%;min-width:0;color:var(--text);font-size:16px;outline:none}input:focus,select:focus{border-color:var(--accent)}input[type=date]{-webkit-appearance:none;appearance:none;width:100%;min-width:0;max-width:100%;min-height:46px;color-scheme:dark}input[type=date]::-webkit-date-and-time-value{text-align:left;min-height:1.2em}input[type=date]::-webkit-datetime-edit{padding:0}.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}.formrow{min-width:0;overflow:hidden}
+label{display:block;font-size:12px;color:var(--muted);margin:13px 0 5px}input,select{display:block;background:#101e26;border:1px solid #50636c;border-radius:10px;padding:11px 10px;width:100%;max-width:100%;min-width:0;color:var(--text);font-size:16px;outline:none}input:focus,select:focus{border-color:var(--accent)}input[type=date]{-webkit-appearance:none;appearance:none;width:100%;min-width:0;max-width:100%;min-height:46px;color-scheme:dark}input[type=date]::-webkit-date-and-time-value{text-align:left;min-height:1.2em}input[type=date]::-webkit-datetime-edit{padding:0}.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.three .formrow{min-width:0}.three label{margin-top:7px}#mins{font-variant-numeric:tabular-nums;letter-spacing:.5px}.formrow{min-width:0;overflow:hidden}
 .choice{display:flex;flex-wrap:wrap;gap:6px}.choice label{margin:0;min-width:0;flex:1 1 88px;color:var(--text);border:1px solid #53636e;border-radius:10px;padding:10px 7px;text-align:center;font-size:12px;cursor:pointer}.choice input{position:absolute;opacity:0;height:1px;width:1px}.choice label:has(input:checked){color:#dfffef;background:#335f55;border-color:var(--accent)}
 .segmented{display:flex;gap:5px;padding:3px;border-radius:11px;background:#111f29;border:1px solid var(--line);margin-top:11px}.segmented button{flex:1;min-width:0;border:0;border-radius:8px;padding:8px 3px;background:transparent;color:var(--muted);font-size:12px;cursor:pointer}.segmented button.on{background:#31554f;color:#e0fff3;font-weight:850}
 .chart{display:block;width:100%;height:auto;margin-top:8px}.chart text{font:10px -apple-system,BlinkMacSystemFont,sans-serif;fill:#b4c6ce}.chart line.grid{stroke:#495a64;stroke-width:.8;stroke-dasharray:3 4}.chart .axis{stroke:#556771}.empty{padding:15px 0;font-size:13px;color:var(--muted)}
@@ -25,7 +25,7 @@ label{display:block;font-size:12px;color:var(--muted);margin:13px 0 5px}input,se
 
 .ability-row{margin:12px 0}.ability-row .meter{height:8px;background:#31444e;border-radius:30px;overflow:hidden;margin:6px 0 3px}.ability-row .meter>i{height:100%;display:block;border-radius:30px;background:#79ddc4}.ability-row .meter>i.low{background:#efbf80}.ability-row .meter>i.unknown{background:#657b8a}.statusline{padding:12px 13px;border-radius:12px;background:#29423f;border:1px solid #3b6f62;margin:11px 0}.statusline.warn{background:#3b362a;border-color:#786640}.statusline.alert{background:#433038;border-color:#7d5961}.statusline.rebuild{background:#2d3e50;border-color:#4e7092}.mininav{display:flex;gap:8px;flex-wrap:wrap}.mininav span{font-size:11px;background:#2c434e;border-radius:8px;padding:4px 7px;color:#c8dde6}.dimtext{font-size:12px;color:#9eb1bd}.emphasis{color:#cbfff0;font-weight:850}.bullets{margin:7px 0 0 16px;padding:0;font-size:13px}.bullets li{padding:3px 0}.nowrap{white-space:nowrap}
 </style></head><body><div id="root"></div><nav id="nav" class="tabbar" aria-label="メインメニュー"></nav><script>(()=>{'use strict';
-const KEY='nagoya-run-mvp-v1',RACE='2027-03-14',RACE_KM=21.0975,VERSION='0.5';
+const KEY='nagoya-run-mvp-v1',RACE='2027-03-14',RACE_KM=21.0975,VERSION='0.6';
 const $=q=>document.querySelector(q);
 const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const asDate=s=>new Date(s+'T12:00:00');
@@ -39,6 +39,28 @@ const num=n=>Number(n||0).toFixed(1);
 const exactKm=n=>Number(n||0).toFixed(2);
 const pace=s=>!Number.isFinite(s)||s<=0?'—':`${Math.floor(Math.round(s)/60)}:${String(Math.round(s)%60).padStart(2,'0')}`;
 const formatHours=minutes=>{const rounded=Math.round(minutes);return `${Math.floor(rounded/60)}時間${rounded%60}分`};
+// Keep the original numeric-minute data model (e.g. 60.483333), display mm:ss.
+const formatDuration=minutes=>{if(minutes===''||minutes==null||!Number.isFinite(+minutes))return '';const n=Math.round(Number(minutes)*60);return `${Math.floor(n/60)}:${String(n%60).padStart(2,'0')}`};
+// Numeric keypad input: 6030 -> 60:30, 12000 -> 120:00. The colon is inserted from 3 digits.
+function durationMask(value){
+ const text=String(value??'').normalize('NFKC').trim();
+ const hms=text.match(/^(\d{1,2}):(\d{2}):(\d{2})$/);
+ if(hms){const seconds=(+hms[1]*60+ +hms[2])*60+ +hms[3];return formatDuration(seconds/60)}
+ const digits=text.replace(/\D/g,'').slice(0,6);
+ return digits.length<=2?digits:`${digits.slice(0,-2)}:${digits.slice(-2)}`;
+}
+function parseDuration(value){
+ const text=String(value??'').trim();
+ if(!text)return null;
+ const match=text.match(/^(\d{1,4}):(\d{1,2})$/);
+ const raw=text.match(/^\d{1,2}$/);
+ if(!match&&!raw)return null;
+ const min=match?Number(match[1]):0,sec=match?Number(match[2]):Number(text);
+ if(!Number.isInteger(min)||!Number.isInteger(sec)||sec<0||sec>=60||min<0||min>1000||(min===1000&&sec!==0))return null;
+ const sum=min+sec/60;return sum>0?sum:null;
+}
+function hasHeart(r){const min=Number(r.hrMin),avg=Number(r.hrAvg),max=Number(r.hrMax);return r.hrMin!=null&&r.hrAvg!=null&&r.hrMax!=null&&Number.isInteger(min)&&Number.isInteger(avg)&&Number.isInteger(max)&&min>=30&&max<=250&&min<=avg&&avg<=max}
+const median=arr=>{if(!arr.length)return null;const a=[...arr].sort((x,y)=>x-y);return a.length%2?a[(a.length-1)/2]:(a[a.length/2-1]+a[a.length/2])/2};
 const safeDate=s=>/^\d{4}-\d{2}-\d{2}$/.test(s)&&!Number.isNaN(asDate(s).getTime());
 const INITIAL=()=>({records:{},checkins:{},progress:{maxLevel:0}});
 let data,storageError=false,tab='home',editing=today(),analysisRange='all',showAllHistory=false;
@@ -119,11 +141,12 @@ function abilityScores(){
  const anyAlert=records().some(([d,r])=>d>=shift(today(),-29)&&(r.symptoms==='alert'||r.pain==='yes'));
  const avgEffort=effortLogs.length?effortLogs.reduce((n,[,r])=>n+sessionEffort(r),0)/effortLogs.length:null;
  const loadScore=anyAlert?null:effortLogs.length>=3?Math.round(clip(125-avgEffort*25)):null;
+ const heart=heartEvidence();
  return [
   {id:'endurance',name:'持久力',score:endurance,why:`直近70日：良好な最長${num(longest)}km／最大${Math.round(longtime)}分`,how:'楽な長めの練習を段階的に重ねる'},
   {id:'consistency',name:'継続力',score:consistency,why:`直近28日：${r28.length}回／実施週${activeWeeks}週`,how:'間に休養を挟んで週2〜3回を安定させる'},
   {id:'pace',name:'関門ペース',score:paceScore,why:paceCandidates.length>=2?`直近70日の5km以上${paceCandidates.length}回、代表ペース${pace(med)}/km`:`5km以上の比較可能な記録は${paceCandidates.length}回（評価には2回必要）`,how:'まず楽な持久力を作り、距離が安定してからペースを確認する'},
-  {id:'load',name:'負荷への余裕',score:loadScore,why:anyAlert?'運動中の違和感があり、数値評価より安全確認を優先':`28日の強度記録${effortLogs.length}件（3件で評価）`,how:'運動後のきつさを記録し、無理な負荷増加を避ける'}
+  {id:'load',name:'負荷への余裕',score:loadScore,why:anyAlert?'運動中の違和感があり、数値評価より安全確認を優先':`28日の強度記録${effortLogs.length}件（3件で評価）。心拍：${heart.kind==='missing'?'未取得':heart.kind==='collecting'?'比較記録を蓄積中':heart.kind==='higher'?'同条件比で高め':heart.kind==='lower'?'同条件比で低め':'大きな変化なし'}（点数には直接加算しない）`,how:'運動後のきつさを記録し、無理な負荷増加を避ける'}
  ];
 }
 function expectedLevel(){
@@ -138,10 +161,48 @@ function conditionStatus(){
  const alert=all.filter(([d,r])=>d>=shift(today(),-29)&&(r.symptoms==='alert'||r.pain==='yes')).at(-1);
  if(alert)return {status:'alert',title:'安全確認が優先',desc:'最近の運動中の痛み・違和感が記録されているよ。特に運動中の肩や胸の症状は、再開前に医療機関で相談してね。'};
  if(prior&&prior[1].symptoms==='sore'&&days(prior[0],today())<=2)return {status:'recover',title:'筋肉痛を考慮',desc:'直近で筋肉痛の記録があるため、軽い活動と回復を優先。悪化するなら中止。'};
+ if(prior&&isWalk(prior[1])&&sessionEffort(prior[1])===3&&days(prior[0],today())<=2)return {status:'recover',title:'ウォーキングの負荷を考慮',desc:'直近のウォーキングがかなりきつかった記録。回復を優先し、次のランニングの距離・速度は増やさない。'};
  if(last&&gap<=1)return {status:'rest',title:'練習間の休養',desc:'前回の走歩・ランニングから1日以内。走る日は原則として間隔を空けよう。'};
  if(last&&sessionEffort(last[1])===3&&gap<=3)return {status:'recover',title:'前回の負荷が高め',desc:'かなりきつかった記録があるので、回復できてから短めに再開しよう。'};
+ if(heartDecisionNote())return {status:'recover',title:'心拍と体感負荷を確認',desc:heartDecisionNote()+' 心拍だけで体調不良を断定しないよ。'};
  if(!last||gap>=14)return {status:'restart',title:'再開期',desc:'過去のレベルは保持するが、実施する負荷は現在の状態から組み直す。'};
  return {status:'ready',title:'最近の実績から提案',desc:'運動前の体調確認も必要。今の画面は医学的な運動許可を意味しないよ。'};
+}
+// Heart-rate samples are auxiliary evidence, not diagnostic thresholds or an age-derived HR zone.
+// Comparisons require one recent running session and >=3 earlier comparable running sessions.
+function heartEvidence(){
+ const runs=trainingRecords(),all=records(),withHR=all.filter(([,r])=>hasHeart(r));
+ const current=runs.filter(([,r])=>hasHeart(r)).at(-1);
+ if(!current)return {kind:'missing',valid:withHR.length,training:runs.filter(([,r])=>hasHeart(r)).length,count:0,reason:'ラン・走歩の心拍記録がまだないよ。心拍数は必須ではなく、実績が増えてから比較する。'};
+ const [date,now]=current,age=days(date,today());
+ // Do not change today's workout based on an older HR session when a newer run has no HR.
+ if(runs.at(-1)?.[0]!==date)return {kind:'stale',valid:withHR.length,training:runs.filter(([,r])=>hasHeart(r)).length,count:0,date,age,reason:'最新のラン・走歩に心拍数がないため、過去の心拍比較を練習判断には使わない。'};
+ const kind=now.mode||'run_walk', p=paceOf(now),mins=+now.minutes,km=+now.km;
+ const references=runs.filter(([d,r])=>d<date&&d>=shift(date,-90)&&hasHeart(r)&&((r.mode||'run_walk')===kind)
+  &&Math.abs(paceOf(r)/p-1)<=.10
+  &&Math.abs(+r.minutes/mins-1)<=.25
+  &&Math.abs(+r.km/km-1)<=.25
+  &&(r.ascentM==null||now.ascentM==null||Math.abs(+r.ascentM/+r.km-(+now.ascentM/km))<=10));
+ const n=references.length,ref=n>=3?median(references.map(([,r])=>+r.hrAvg)):null;
+ const diff=ref==null?null:Math.round(+now.hrAvg-ref);
+ const conditionKnown=references.length>=3&&references.every(([,r])=>r.ascentM!=null)&&now.ascentM!=null;
+ if(n<3)return {kind:'collecting',valid:withHR.length,training:runs.filter(([,r])=>hasHeart(r)).length,count:n,current:+now.hrAvg,date,reason:`今回${now.hrAvg}bpm。運動種類・距離・時間・ペースが近い過去記録は${n}件。3件以上集まったら傾向を比較する。`};
+ const adjective=conditionKnown?'近い条件':'距離・時間・ペースが近い条件（コース差は未確認）';
+ const pre=`最新${now.hrAvg}bpm、過去${n}件の中央値${Math.round(ref)}bpm（差${diff>=0?'+':''}${diff}bpm）。${adjective}で比較。`;
+ let status='stable',notice='大きな心拍変化はまだ検知していないよ。';
+ // 12bpm is a conservative APP heuristic, not a clinical cut-off.
+ if(diff>=12){status='higher';notice='心拍が高めの傾向。疲労感や暑さ、睡眠、測定差も確認し、すぐに距離を増やさない。'}
+ else if(diff<=-12){status='lower';notice='同じくらいのペースで心拍が低め。持久力向上の参考だが、これだけで負荷を増やす判定はしない。'}
+ return {kind:status,valid:withHR.length,training:runs.filter(([,r])=>hasHeart(r)).length,count:n,current:+now.hrAvg,date,ref,diff,confidence:conditionKnown?'course-recorded':'course-unknown',effort:sessionEffort(now),age,reason:pre+notice};
+}
+function heartSummary(items){
+ const ok=items.filter(([,r])=>hasHeart(r)),weighted=ok.reduce((n,[,r])=>n+ +r.hrAvg* +r.minutes,0),minutes=ok.reduce((n,[,r])=>n+ +r.minutes,0);
+ return {n:ok.length,average:minutes>0?Math.round(weighted/minutes):null,min:ok.length?Math.min(...ok.map(([,r])=>+r.hrMin)):null,max:ok.length?Math.max(...ok.map(([,r])=>+r.hrMax)):null};
+}
+function heartDecisionNote(){
+ const h=heartEvidence();
+ if(h.kind==='higher'&&h.effort>=2&&h.age<=3)return '最近のランニングは同条件の過去記録より平均心拍が高めで、体感負荷も軽くないため、距離・速度の増加を見送る。';
+ return '';
 }
 function progressDiagnosis(){
  const p=progressState(),current=conditionStatus(),target=expectedLevel(),es=p.es;
@@ -166,6 +227,8 @@ function trainingFocus(){
  const p=progressState(),scores=abilityScores(),d=progressDiagnosis();
  if(d.kind==='alert')return {name:'安全確認',why:'運動中の症状があるため、練習負荷を増やす判定はしない。'};
  if(d.kind==='rebuild')return {name:'練習習慣の再構築',why:'休止後は以前のレベルを維持できているとは限らないため、段階的に戻す。'};
+ const hr=heartEvidence();
+ if(hr.kind==='higher'&&hr.effort>=2&&hr.age<=7)return {name:'負荷と回復の確認',why:hr.reason};
  const valid=scores.filter(x=>x.score!==null&&x.id!=='load').sort((a,b)=>a.score-b.score);
  const worst=valid[0];
  if(!worst)return {name:'基礎データを集める',why:'ラン・走歩の実績が十分でないため、短い練習から確認する。'};
@@ -195,9 +258,12 @@ function planForToday(){
   else mins=Math.min(mins,Math.max(25,Math.round(previous+10)));
  }
  if(recent.length<5)mins=Math.min(mins,45);
+ const h=heartEvidence();
+ if(h.kind==='higher'&&h.effort>=2&&h.age<=7)mins=Math.min(mins,Math.max(15,Math.round(+last[1].minutes*.85)));
  const weeklyLong=weekRuns.length>=2,readySpeed=p.current>=6&&recent.length>=6&&c.status==='ready';
  let label=weeklyLong?'今週の長めの楽な走歩':'会話できる強さの楽な走歩';
  let explain=weeklyLong?'週1回だけ長めの枠。無理な距離の更新はしない。':'前回の負荷と最近の練習時間から調整。歩く区間を増やしてもよい。';
+ if(h.kind==='higher'&&h.effort>=2&&h.age<=7)explain+=' 平均心拍が比較対象より高く体感負荷もあるため、今回は負荷増加を見送る。';
  if(focus.name==='関門ペースの確認'&&readySpeed&&!weeklyLong){label='楽な走歩＋短いペース確認';explain='十分な基礎がある場合だけ、途中に2〜3分の少し速い区間を1〜2回。肩・胸の違和感があれば実施しない。';}
  return {title:`${Math.round(mins)}分｜${label}`,minutes:Math.round(mins),type:diag.kind==='warn'?'進捗調整':'通常練習',detail:explain,reason:`実施段階Lv.${p.current}、重点「${focus.name}」。${focus.why}`};
 }
@@ -265,18 +331,38 @@ function planPage(){
 
 function recordPage(){
  const r=data.records[editing]||{},eff=r.effort??(r.fatigue==null?2:sessionEffort(r)),mode=r.mode||'run_walk';
+ const hr=(field)=>r[field]==null?'':String(r[field]);
  shell('運動を記録',`
  <div class="card"><form id="recordForm"><div class="formrow"><label for="day">日付</label><input type="date" id="day" name="day" value="${esc(editing)}" max="${today()}" required></div>
- <div class="two"><div class="formrow"><label for="km">距離（km）</label><input id="km" type="number" name="km" min="0.01" max="200" step="0.01" inputmode="decimal" value="${esc(r.rest?'':r.km??'')}" required></div><div class="formrow"><label for="mins">時間（分）</label><input id="mins" type="number" name="mins" min="0.1" max="1000" step="any" inputmode="decimal" value="${esc(r.rest?'':r.minutes??'')}" required></div></div>
+ <div class="two"><div class="formrow"><label for="km">距離（km）</label><input id="km" type="number" name="km" min="0.01" max="200" step="0.01" inputmode="decimal" value="${esc(r.rest?'':r.km??'')}" required></div><div class="formrow"><label for="mins">時間（分:秒）</label><input id="mins" type="text" name="mins" inputmode="numeric" autocomplete="off" maxlength="7" placeholder="60:29" value="${esc(r.rest?'':formatDuration(r.minutes))}" required aria-describedby="timeHelp"></div></div>
+ <p class="foot" id="timeHelp">数字だけで自動入力：<b>6030 → 60:30</b>、<b>12000 → 120:00</b>。秒は下2桁。40分なら4000と入力。</p>
+ <label>心拍数（bpm）・任意</label><div class="three"><div class="formrow"><label for="hrAvg">平均</label><input id="hrAvg" name="hrAvg" type="number" min="30" max="250" step="1" inputmode="numeric" placeholder="109" value="${esc(hr('hrAvg'))}"></div><div class="formrow"><label for="hrMin">最小</label><input id="hrMin" name="hrMin" type="number" min="30" max="250" step="1" inputmode="numeric" placeholder="90" value="${esc(hr('hrMin'))}"></div><div class="formrow"><label for="hrMax">最大</label><input id="hrMax" name="hrMax" type="number" min="30" max="250" step="1" inputmode="numeric" placeholder="129" value="${esc(hr('hrMax'))}"></div></div>
+ <p class="foot">平均・最小・最大は3つセットで記入。過去の記録は空欄のままでOK。心拍数が低い・高いだけで運動の安全性や走力を判断しないよ。</p>
+ <div class="formrow"><label for="ascentM">上り累積標高差（m）・任意</label><input id="ascentM" name="ascentM" type="number" min="0" max="10000" step="1" inputmode="numeric" placeholder="78" value="${esc(r.ascentM==null?'':r.ascentM)}"></div>
  <label>運動の種類</label><div class="choice">${[['run_walk','走る＋歩く'],['run','ランニング'],['walk','ウォーキング']].map(([v,n])=>`<label><input name="mode" type="radio" value="${v}" ${mode===v?'checked':''}>${n}</label>`).join('')}</div>
  <label>運動後の強度</label><div class="choice">${[[1,'余裕あり'],[2,'ちょうどいい'],[3,'かなりきつい']].map(([v,n])=>`<label><input name="effort" type="radio" value="${v}" ${Number(eff)===v?'checked':''}>${n}</label>`).join('')}</div>
  <label>痛み・違和感</label><div class="choice">${[['none','なし'],['sore','筋肉痛のみ'],['alert','走行中の違和感・痛み']].map(([v,n])=>`<label><input name="symptoms" type="radio" value="${v}" ${(r.symptoms||(r.pain==='yes'?'alert':'none'))===v?'checked':''}>${n}</label>`).join('')}</div>
  <p class="foot">平均ペースは自動計算。走行中の左肩などの違和感は筋肉痛とは分けて記録してね。異常がある場合は練習を中止して確認しよう。</p><button class="btn full" type="submit">記録して練習を更新</button></form><button id="todayBtn" class="btn sub full">今日の日付に戻る</button><button id="deleteBtn" class="btn danger full">この日の記録を削除する</button></div>
- <h2 class="section">最近の記録</h2><div class="card">${records().slice(-7).reverse().map(([d,r])=>`<div class="rowline spread"><div><b>${dateLabel(d)}</b><div class="small muted">${isWalk(r)?'<span class="tag walktag">散歩</span> ':''}${num(r.km)}km ・${num(r.minutes)}分・${pace(paceOf(r))}/km</div></div><button data-edit="${esc(d)}" class="btn sub smallbtn">編集</button></div>`).join('')||'<div class="empty">まだ記録はないよ。</div>'}</div>
+ <h2 class="section">最近の記録</h2><div class="card">${records().slice(-7).reverse().map(([d,r])=>`<div class="rowline spread"><div><b>${dateLabel(d)}</b><div class="small muted">${isWalk(r)?'<span class="tag walktag">散歩</span> ':''}${num(r.km)}km ・${formatDuration(r.minutes)} ・${pace(paceOf(r))}/km${hasHeart(r)?` ・心拍${r.hrAvg}bpm`:''}</div></div><button data-edit="${esc(d)}" class="btn sub smallbtn">編集</button></div>`).join('')||'<div class="empty">まだ記録はないよ。</div>'}</div>
  <p class="foot">過去の記録は同じiPhoneのWebサイト保存領域から引き継ぐ。Safariとホーム画面の保存領域が分かれる場合、記録は自動同期されないよ。</p>`);
- const f=$('#recordForm');f.elements.day.onchange=()=>{const chosen=f.elements.day.value;if(safeDate(chosen)&&chosen<=today()){editing=chosen;render()}else{f.elements.day.value=editing}};
- f.onsubmit=e=>{e.preventDefault();const km=Number(f.elements.km.value),mins=Number(f.elements.mins.value);if(!(km>0&&km<=200&&mins>0&&mins<=1000))return alert('距離と時間を確認してね。');if(mins*60/km<120)return alert('2分/kmより速い計算になっているので、入力値を確認してね。');const symptoms=f.elements.symptoms.value;
+ const f=$('#recordForm');
+ const durationInput=f.elements.mins;
+ durationInput.addEventListener('input',()=>{const atEnd=durationInput.selectionStart===durationInput.value.length;const mask=durationMask(durationInput.value);durationInput.value=mask;if(atEnd)durationInput.setSelectionRange(mask.length,mask.length)});
+ durationInput.addEventListener('blur',()=>{const secs=parseDuration(durationInput.value);if(secs!=null)durationInput.value=formatDuration(secs)});
+ f.elements.day.onchange=()=>{const chosen=f.elements.day.value;if(safeDate(chosen)&&chosen<=today()){editing=chosen;render()}else{f.elements.day.value=editing}};
+ f.onsubmit=e=>{e.preventDefault();const km=Number(f.elements.km.value),mins=parseDuration(f.elements.mins.value);
+ if(!(km>0&&km<=200&&mins!=null&&mins>0&&mins<=1000))return alert('距離・時間を確認してね。時間は6030→60:30、12000→120:00。秒は00〜59だよ。');
+ const heartNames=['hrAvg','hrMin','hrMax'],strings=heartNames.map(k=>f.elements[k].value.trim()),filled=strings.filter(Boolean).length;
+ if(filled!==0&&filled!==3)return alert('心拍数を入力する場合、平均・最小・最大の3つを記入してね。');
+ const hrv=strings.map(Number);
+ if(filled===3&&(!hrv.every(n=>Number.isInteger(n)&&n>=30&&n<=250)||!(hrv[1]<=hrv[0]&&hrv[0]<=hrv[2])))return alert('心拍数の入力値を確認してね。30〜250bpmの整数、最小 ≦ 平均 ≦ 最大で入力してね。');
+ const climbText=f.elements.ascentM.value.trim(),climb=climbText===''?null:Number(climbText);
+ if(climbText!==''&&(!Number.isInteger(climb)||climb<0||climb>10000))return alert('上り累積標高差は0〜10000mの整数で入力してね。');if(mins*60/km<120)return alert('2分/kmより速い計算になっているので、入力値を確認してね。');const symptoms=f.elements.symptoms.value;
  data.records[editing]={...data.records[editing],km,minutes:mins,effort:Number(f.elements.effort.value),mode:f.elements.mode.value,symptoms,pain:symptoms==='alert'?'yes':'no',rest:false};
+ // Do not zero-fill missing heart measurements or fabricate a resting HR.
+ for(const field of heartNames)delete data.records[editing][field];
+ if(filled===3){data.records[editing].hrAvg=hrv[0];data.records[editing].hrMin=hrv[1];data.records[editing].hrMax=hrv[2]}
+ if(climb===null)delete data.records[editing].ascentM;else data.records[editing].ascentM=climb;
  const nextLevel=progressState().lv;data.progress.maxLevel=nextLevel;
  if(save()){alert('記録できたよ！ ロードマップと分析も更新したよ。');tab='home';render()}};
  $('#todayBtn').onclick=()=>{editing=today();render()};$('#deleteBtn').onclick=()=>{if(!data.records[editing])return alert('この日の記録がないよ。');if(confirm('この日の記録を削除する？')){delete data.records[editing];if(save())render()}};
@@ -369,6 +455,37 @@ function svgTrend(items,scope,type){
  const unitText=unit==='week'?'全期間は週単位':unit==='month'?'長期間の記録は月単位':'日単位';
  return out+`<p class="foot">${unitText}で表示。${isDistance?'緑と青の距離を区別。':'各区間の距離加重平均ペース。緑と青は別系列でつなぐ。'}</p>`;
 }
+function svgHeart(items,scope){
+ const {unit}=trendGroups(items,scope),m=new Map();
+ for(const [d,r] of items){if(!hasHeart(r))continue;
+  const key=unit==='week'?weekStart(d):unit==='month'?d.slice(0,7)+'-01':d;
+  const v=m.get(key)||{key,runSum:0,runMin:0,walkSum:0,walkMin:0,runLow:250,runHigh:0,walkLow:250,walkHigh:0};
+  const walk=isWalk(r),weight=+r.minutes;
+  if(walk){v.walkSum+= +r.hrAvg*weight;v.walkMin+=weight;v.walkLow=Math.min(v.walkLow,+r.hrMin);v.walkHigh=Math.max(v.walkHigh,+r.hrMax)}
+  else{v.runSum+= +r.hrAvg*weight;v.runMin+=weight;v.runLow=Math.min(v.runLow,+r.hrMin);v.runHigh=Math.max(v.runHigh,+r.hrMax)}
+  m.set(key,v);
+ }
+ const buckets=[...m.values()].sort((a,b)=>a.key.localeCompare(b.key));
+ if(!buckets.length)return '<div class="empty">この期間の心拍データはまだないよ。記録時に平均・最小・最大を入力すると表示するよ。</div>';
+ const allAvg=buckets.flatMap(v=>[v.runMin?v.runSum/v.runMin:null,v.walkMin?v.walkSum/v.walkMin:null]).filter(v=>v!==null);
+ // The plotted series is the time-weighted average, not instantaneous extremes.
+ const low=Math.max(30,Math.floor((Math.min(...allAvg)-12)/10)*10),high=Math.min(250,Math.max(low+30,Math.ceil((Math.max(...allAvg)+12)/10)*10));
+ const W=354,H=204,L=40,R=13,T=17,B=162,{start,end}=axisDomain(items,scope,unit),span=Math.max(1,days(start,end));
+ const X=d=>L+Math.max(0,Math.min(1,days(start,d)/span))*(W-L-R),Y=v=>B-(v-low)/(high-low)*(B-T);
+ let svg=`<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="平均心拍数の推移。緑はラン・走歩、青はウォーキング">`;
+ for(let i=0;i<=3;i++){const v=low+(high-low)*i/3,y=Y(v);svg+=`<line class="grid" x1="${L}" x2="${W-R}" y1="${y}" y2="${y}"/><text x="${L-6}" y="${y+4}" text-anchor="end">${Math.round(v)}</text>`}
+ for(const [walk,color] of [[false,RUN_COLOR],[true,WALK_COLOR]]){
+  const pts=buckets.filter(v=>walk?v.walkMin:v.runMin).map(v=>({day:v.key,value:walk?v.walkSum/v.walkMin:v.runSum/v.runMin,min:walk?v.walkLow:v.runLow,max:walk?v.walkHigh:v.runHigh}));
+  let prev=null;
+  for(const p of pts){const x=X(p.day),y=Y(p.value);
+   if(prev)svg+=`<line x1="${prev.x}" y1="${prev.y}" x2="${x}" y2="${y}" stroke="${color}" stroke-width="2" ${walk?'stroke-dasharray="4 4"':''}/>`;
+   if(unit==='day'){const y1=Y(Math.min(high,p.max)),y2=Y(Math.max(low,p.min));svg+=`<line x1="${x}" y1="${y1}" x2="${x}" y2="${y2}" stroke="${color}" stroke-width="2" opacity=".42"/>`}
+   svg+=`<circle cx="${x}" cy="${y}" r="${pts.length>28?2.8:4.2}" fill="${color}"><title>${p.day}：平均 ${Math.round(p.value)}bpm${unit==='day'?`（${p.min}〜${p.max}bpm）`:''}</title></circle>`;prev={x,y};
+  }
+ }
+ for(const tick of axisLabels(start,end,unit))svg+=`<text x="${X(tick.d)}" y="${H-16}" text-anchor="${tick.anchor}">${tick.label}</text>`;
+ svg+='</svg>';return svg+`<p class="foot">日別は平均点＋最小〜最大の細線。週・月別は運動時間による加重平均。ウォーキングとラン・走歩は混ぜない。</p>`;
+}
 function chartLegend(){return `<div class="chartlegend"><span><i style="background:${RUN_COLOR}"></i>ランニング＋走歩</span><span><i style="background:${WALK_COLOR}"></i>ウォーキング</span></div>`}
 function cumulativeChart(all){
  if(!all.length)return '<div class="empty">まだ記録がないよ。</div>';
@@ -419,9 +536,17 @@ function analysisPage(){
  <h2 class="section">能力別の到達度</h2><div class="card">${abilityHtml(false)}<p class="foot">能力別の値はデータと基準を透明化するための内部指標。医学的な走力、心肺機能、完走確率を示す点数ではない。</p></div>
  <h2 class="section">距離とペースの推移</h2><div class="card"><div class="small muted">表示期間</div><div class="segmented">${[['14','14日'],['30','30日'],['all','全期間']].map(([v,n])=>`<button type="button" data-range="${v}" class="${v===analysisRange?'on':''}">${n}</button>`).join('')}</div><p class="foot">${analysisRange==='all'?'初回から現在まで。':'指定期間内。'} ラン＋走歩${shown.filter(([,r])=>!isWalk(r)).length}回、ウォーキング${shown.filter(([,r])=>isWalk(r)).length}回${unit==='week'?'（週別）':unit==='month'?'（月別）':''}。</p>
  ${chartLegend()}<div class="rowline"><b>距離の推移（km）</b>${svgTrend(shown,analysisRange,'km')}</div><div class="rowline"><b>ペースの推移（分:秒/km）</b>${svgTrend(shown,analysisRange,'pace')}</div><p class="foot">運動の種類、コース、強度が違えばペースのみで成長とは判断できない。</p></div>
+ <h2 class="section">心拍数と運動負荷</h2><div class="card">
+ <p class="small muted">直近の比較はランニング／走歩のみ。ウォーキングは別集計。</p>
+ <div class="grid2" style="margin-top:10px"><div class="muted-card"><div class="small muted">ラン＋走歩の平均心拍</div><div class="big" style="font-size:20px">${heartSummary(trainingRecords()).average??'—'}<span class="small"> bpm</span></div><p class="tiny muted">入力あり${heartSummary(trainingRecords()).n}回・時間加重</p></div><div class="muted-card"><div class="small muted">ウォーキングの平均心拍</div><div class="big" style="font-size:20px">${heartSummary(walkingRecords()).average??'—'}<span class="small"> bpm</span></div><p class="tiny muted">入力あり${heartSummary(walkingRecords()).n}回・時間加重</p></div></div>
+ <div class="note">${esc(heartEvidence().reason)}</div>
+ <b style="display:block;margin-top:12px">平均心拍の推移（bpm）</b>
+ ${chartLegend()}${svgHeart(shown,analysisRange)}
+ <p class="foot">心拍の絶対値だけで安全性・持久力・完走可能性を判定しない。比較条件が不十分なら「蓄積中」と表示。気温、坂道、睡眠、疲労、測定差も影響する。</p>
+ </div>
  <div class="card"><b>累計距離の積み上がり</b><p class="small muted">ラン＋走歩とウォーキングを別系列表示</p>${cumulativeChart(all)}</div>
  <h2 class="section">月ごとの実績</h2><div class="card">${monthlyRows(all)||'<div class="empty">まだ記録がないよ。</div>'}</div>
- <h2 class="section">全記録</h2><div class="card">${(showAllHistory?all.slice().reverse():all.slice(-12).reverse()).map(([day,r])=>`<div class="rowline spread"><div><b>${esc(day)}</b> ${isWalk(r)?'<span class="tag walktag">ウォーキング</span>':''}<div class="small muted">${num(r.km)}km ／ ${num(r.minutes)}分 ／ ${pace(paceOf(r))}/km</div></div><button type="button" class="btn sub smallbtn" data-edit="${esc(day)}">編集</button></div>`).join('')||'<div class="empty">記録はまだないよ。</div>'}${all.length>12?`<button class="btn sub full" id="historyToggle">${showAllHistory?'直近12件に戻す':'すべて表示（'+all.length+'件）'}</button>`:''}</div><p class="foot">データはこの端末のWebサイト保存領域に格納。SafariのWebサイトデータを削除すると消えることがあるので注意。</p>`);
+ <h2 class="section">全記録</h2><div class="card">${(showAllHistory?all.slice().reverse():all.slice(-12).reverse()).map(([day,r])=>`<div class="rowline spread"><div><b>${esc(day)}</b> ${isWalk(r)?'<span class="tag walktag">ウォーキング</span>':''}<div class="small muted">${num(r.km)}km ／ ${formatDuration(r.minutes)} ／ ${pace(paceOf(r))}/km${hasHeart(r)?` ／ 平均${r.hrAvg}bpm`:''}</div></div><button type="button" class="btn sub smallbtn" data-edit="${esc(day)}">編集</button></div>`).join('')||'<div class="empty">記録はまだないよ。</div>'}${all.length>12?`<button class="btn sub full" id="historyToggle">${showAllHistory?'直近12件に戻す':'すべて表示（'+all.length+'件）'}</button>`:''}</div><p class="foot">データはこの端末のWebサイト保存領域に格納。SafariのWebサイトデータを削除すると消えることがあるので注意。</p>`);
  document.querySelectorAll('[data-range]').forEach(b=>b.onclick=()=>{analysisRange=b.dataset.range;render()});
  document.querySelectorAll('[data-edit]').forEach(b=>b.onclick=()=>{editing=b.dataset.edit;tab='record';render()});
  if($('#historyToggle'))$('#historyToggle').onclick=()=>{showAllHistory=!showAllHistory;render()};
